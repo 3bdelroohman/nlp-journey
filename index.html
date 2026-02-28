@@ -17,214 +17,141 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--t
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-6px) rotate(5deg)}}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes blob{0%,100%{border-radius:42% 58% 70% 30%/45% 45% 55% 55%}25%{border-radius:55% 45% 40% 60%/65% 35% 65% 35%}50%{border-radius:30% 70% 55% 45%/55% 45% 55% 45%}75%{border-radius:65% 35% 45% 55%/40% 60% 40% 60%}}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:none}}
-@keyframes confetti{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(-100px) rotate(720deg);opacity:0}}
 
-/* ONBOARDING */
-.onboard{position:fixed;inset:0;z-index:500;display:flex;flex-direction:column}
-.onboard.hide{display:none}
-.ob-slide{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;display:none}
-.ob-slide.act{display:flex}
+.onboard{position:fixed;inset:0;z-index:500;display:flex;flex-direction:column}.onboard.hide{display:none}
+.ob-slide{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden;display:none}.ob-slide.act{display:flex}
 .ob-blob1{position:absolute;width:200px;height:200px;background:rgba(255,255,255,.15);animation:blob 8s infinite;top:10%;right:-30px}
 .ob-blob2{position:absolute;width:150px;height:150px;background:rgba(255,255,255,.1);animation:blob 10s infinite reverse;bottom:15%;left:-20px}
-.ob-dots{position:absolute;bottom:30%;display:flex;gap:8px}
-.ob-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:.3s}
-.ob-dots span.act{background:#fff;width:24px;border-radius:4px}
 .ob-char{font-size:120px;margin-bottom:20px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 10px 20px rgba(0,0,0,.1))}
 .ob-title{font-size:28px;font-weight:700;color:#fff;text-align:center;margin-bottom:10px}
 .ob-desc{font-size:15px;color:rgba(255,255,255,.85);text-align:center;line-height:1.6;max-width:300px}
-.ob-next{position:absolute;bottom:12%;width:60px;height:60px;border-radius:50%;background:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:.3s;display:flex;align-items:center;justify-content:center}
-.ob-next:active{transform:scale(.9)}
+.ob-dots{position:absolute;bottom:30%;display:flex;gap:8px}
+.ob-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);transition:.3s}.ob-dots span.act{background:#fff;width:24px;border-radius:4px}
+.ob-next{position:absolute;bottom:12%;width:60px;height:60px;border-radius:50%;background:#fff;border:none;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:.3s;display:flex;align-items:center;justify-content:center}.ob-next:active{transform:scale(.9)}
 .ob-skip{position:absolute;top:50px;left:30px;background:none;border:none;color:rgba(255,255,255,.7);font-size:14px;cursor:pointer;font-family:inherit}
-[dir="ltr"] .ob-skip{left:auto;right:30px}
 
-/* HEADER */
-.hdr{background:linear-gradient(135deg,#FF8C00,#FFB347,#FF6B00);color:#fff;padding:35px 20px 60px;position:relative;overflow:hidden}
+.hdr{background:linear-gradient(135deg,#FF8C00,#FFB347,#FF6B00);color:#fff;padding:30px 20px 70px;position:relative;overflow:hidden}
 .hdr::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:28px;background:var(--bg);border-radius:28px 28px 0 0}
 .hdr-blob{position:absolute;width:120px;height:120px;background:rgba(255,255,255,.08);animation:blob 12s infinite;top:-20px;left:-20px}
 .hdr-blob2{position:absolute;width:80px;height:80px;background:rgba(255,255,255,.06);animation:blob 15s infinite reverse;top:30px;right:10px}
 .hdr-stars{position:absolute;font-size:14px;animation:floatSlow 4s ease-in-out infinite;opacity:.4}
-.hdr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;position:relative;z-index:1}
+.hdr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;position:relative;z-index:1}
 .hdr-acts{display:flex;gap:8px}
-.hdr-btn{background:rgba(255,255,255,.2);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:15px;cursor:pointer;transition:.3s;backdrop-filter:blur(8px)}
-.hdr-btn:active{transform:scale(.9)}
-.hdr h2{font-size:24px;font-weight:700;position:relative;z-index:1}
-.hdr .motiv{font-size:13px;opacity:.9;margin-top:6px;line-height:1.5;position:relative;z-index:1}
-.hdr-char{position:absolute;bottom:35px;left:20px;font-size:55px;animation:float 4s ease-in-out infinite;z-index:1;filter:drop-shadow(0 5px 10px rgba(0,0,0,.1))}
+.hdr-btn{background:rgba(255,255,255,.2);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:15px;cursor:pointer;transition:.3s;backdrop-filter:blur(8px)}.hdr-btn:active{transform:scale(.9)}
+.hdr h2{font-size:22px;font-weight:700;position:relative;z-index:1}
+.hdr .motiv{font-size:12px;opacity:.9;margin-top:4px;line-height:1.5;position:relative;z-index:1}
+.hdr-char{position:absolute;bottom:40px;left:20px;font-size:50px;animation:float 4s ease-in-out infinite;z-index:1;filter:drop-shadow(0 5px 10px rgba(0,0,0,.1))}
 [dir="ltr"] .hdr-char{left:auto;right:20px}
-.cd-main{background:rgba(255,255,255,.2);border-radius:14px;padding:8px 16px;display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-top:10px;backdrop-filter:blur(8px);position:relative;z-index:1}
+.hdr-box{background:rgba(255,255,255,.15);border-radius:14px;padding:12px 14px;margin-top:10px;backdrop-filter:blur(8px);position:relative;z-index:1}
+.hdr-box-title{font-size:12px;opacity:.85;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.hdr-bar{height:8px;background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden;margin-bottom:5px}
+.hdr-bar-fill{height:100%;border-radius:4px;transition:width .8s}
+.hdr-bar-info{font-size:10px;opacity:.8;display:flex;justify-content:space-between}
+.hdr-budget{margin-top:8px}
 
-/* CARDS */
-.c{background:var(--bgc);border-radius:var(--r);padding:16px;box-shadow:var(--sh);transition:transform .2s;cursor:pointer;margin-bottom:12px}
-.c:active{transform:scale(.97)}
+.c{background:var(--bgc);border-radius:var(--r);padding:16px;box-shadow:var(--sh);transition:transform .2s;cursor:pointer;margin-bottom:12px}.c:active{transform:scale(.97)}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px;margin-bottom:16px}
-.gs{display:flex;gap:12px;padding:0 16px;overflow-x:auto;margin-bottom:16px;scroll-snap-type:x mandatory}
-.gs::-webkit-scrollbar{display:none}
+.gs{display:flex;gap:12px;padding:0 16px;overflow-x:auto;margin-bottom:16px;scroll-snap-type:x mandatory}.gs::-webkit-scrollbar{display:none}
 .gs>.cdc{scroll-snap-align:start;min-width:140px;flex-shrink:0}
 .st{font-size:17px;font-weight:700;padding:14px 20px 8px}
-.sts{font-size:12px;color:var(--text2);padding:0 20px 10px}
 
-/* PATH CARD HOME */
 .pc{padding:16px;overflow:hidden;position:relative}
-.pc .pi{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px;position:relative}
-.pc .pi .mini-char{position:absolute;font-size:10px;bottom:-2px;right:-2px;animation:floatSlow 3s infinite}
+.pc .pi{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:10px}
 .pc .pn{font-size:14px;font-weight:700;margin-bottom:3px}
 .pc .pf2{font-size:11px;color:var(--text2);margin-bottom:5px}
-.pc .pest{font-size:10px;color:var(--teal);margin-top:6px;display:flex;align-items:center;gap:3px}
+.pc .ph{font-size:10px;color:var(--teal);margin-top:5px}
 .pb{height:7px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden}.dark .pb{background:rgba(255,255,255,.08)}
 .pfl{height:100%;border-radius:4px;transition:width .8s}
 
-/* COUNTDOWN */
-.cdc{border-radius:var(--r);padding:14px;color:#fff;text-align:center;cursor:pointer;transition:transform .2s;position:relative;overflow:hidden}
-.cdc:active{transform:scale(.96)}
-.cdc .ci{font-size:22px;margin-bottom:4px}
-.cdc .cv{font-size:26px;font-weight:700}
-.cdc .cl{font-size:10px;opacity:.9;margin-top:3px}
+.cdc{border-radius:var(--r);padding:14px;color:#fff;text-align:center;cursor:pointer;transition:transform .2s;position:relative;overflow:hidden}.cdc:active{transform:scale(.96)}
+.cdc .ci{font-size:22px;margin-bottom:4px}.cdc .cv{font-size:26px;font-weight:700}.cdc .cl{font-size:10px;opacity:.9;margin-top:3px}
 .cdc-blob{position:absolute;width:50px;height:50px;background:rgba(255,255,255,.1);animation:blob 8s infinite;top:-10px;right:-10px}
 
-/* UPCOMING */
 .ui{display:flex;align-items:center;gap:12px;padding:12px 16px;margin:0 16px 8px;background:var(--bgc);border-radius:16px;box-shadow:var(--sh)}
-.ud{width:10px;height:10px;border-radius:50%;flex-shrink:0}
-.ut{font-size:13px;font-weight:600}
-.udt{font-size:11px;color:var(--text2)}
+.ud{width:10px;height:10px;border-radius:50%;flex-shrink:0}.ut{font-size:13px;font-weight:600}.udt{font-size:11px;color:var(--text2)}
 
-/* NAV */
 #nav{position:fixed;bottom:0;left:0;right:0;height:var(--nh);background:var(--bgc);box-shadow:0 -2px 15px rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-around;z-index:100;border-radius:18px 18px 0 0}
-.ni{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:8px 12px;border:none;background:none;color:var(--text2);font-size:10px;font-family:inherit;transition:.3s}
-.ni.act{color:var(--pri)}
-.ni .ico{font-size:20px;transition:.3s}.ni.act .ico{transform:translateY(-2px) scale(1.1)}
+.ni{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:8px 12px;border:none;background:none;color:var(--text2);font-size:10px;font-family:inherit;transition:.3s}.ni.act{color:var(--pri)}.ni .ico{font-size:20px;transition:.3s}.ni.act .ico{transform:translateY(-2px) scale(1.1)}
 
-/* TABS */
 .tb{display:flex;gap:8px;padding:10px 16px;overflow-x:auto}.tb::-webkit-scrollbar{display:none}
-.t{padding:7px 15px;border-radius:18px;font-size:12px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:.3s;background:var(--bg);color:var(--text2);font-family:inherit}
-.dark .t{background:var(--bgc)}.t.act{background:var(--pri);color:#fff}
+.t{padding:7px 15px;border-radius:18px;font-size:12px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;transition:.3s;background:var(--bg);color:var(--text2);font-family:inherit}.dark .t{background:var(--bgc)}.t.act{background:var(--pri);color:#fff}
 
-/* BRANCH */
-.bc{display:flex;align-items:center;gap:12px;padding:13px 16px;margin:0 16px 8px;background:var(--bgc);border-radius:var(--r);box-shadow:var(--sh);cursor:pointer;transition:transform .2s}
-.bc:active{transform:scale(.97)}
+.bc{display:flex;align-items:center;gap:12px;padding:13px 16px;margin:0 16px 8px;background:var(--bgc);border-radius:var(--r);box-shadow:var(--sh);cursor:pointer;transition:transform .2s}.bc:active{transform:scale(.97)}
 .bic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.bi{flex:1;min-width:0}.bn{font-size:13px;font-weight:700;margin-bottom:2px}
-.bm{font-size:11px;color:var(--text2);margin-bottom:5px}
-.best{font-size:10px;color:var(--teal);margin-top:4px}
+.bi{flex:1;min-width:0}.bn{font-size:13px;font-weight:700;margin-bottom:2px}.bm{font-size:11px;color:var(--text2);margin-bottom:5px}.best{font-size:10px;color:var(--teal);margin-top:4px}
 
-/* DETAIL */
 .dh{padding:14px 20px;display:flex;align-items:center;gap:12px}
-.bbk{width:38px;height:38px;border-radius:11px;border:none;background:var(--bgc);box-shadow:var(--sh);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:.3s}
-.bbk:active{transform:scale(.9)}
+.bbk{width:38px;height:38px;border-radius:11px;border:none;background:var(--bgc);box-shadow:var(--sh);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text);transition:.3s}.bbk:active{transform:scale(.9)}
 .dta{flex:1}.dt{font-size:17px;font-weight:700}.ds{font-size:11px;color:var(--text2);margin-top:2px}
 .dpw{margin:0 16px 14px;background:var(--bgc);border-radius:14px;padding:12px 16px;box-shadow:var(--sh)}
 .dsec{margin:0 16px 14px;background:var(--bgc);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
-.dsh{padding:12px 16px;font-size:14px;font-weight:700;border-bottom:1px solid rgba(0,0,0,.04);display:flex;justify-content:space-between;align-items:center}
-.dark .dsh{border-color:rgba(255,255,255,.04)}
-.dsh-add{background:none;border:none;font-size:18px;cursor:pointer;color:var(--pri);padding:2px 6px}
+.dsh{padding:12px 16px;font-size:14px;font-weight:700;border-bottom:1px solid rgba(0,0,0,.04)}.dark .dsh{border-color:rgba(255,255,255,.04)}
 
-/* CHECK ITEM */
-.chi{display:flex;align-items:flex-start;gap:10px;padding:11px 16px;border-bottom:1px solid rgba(0,0,0,.03);position:relative}
-.dark .chi{border-color:rgba(255,255,255,.03)}.chi:last-child{border:none}
-.cc{width:25px;height:25px;border-radius:50%;border:2.5px solid var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;flex-shrink:0;margin-top:2px;font-size:12px;color:transparent}
-.cc.chk{border-color:var(--grn);background:var(--grn);color:#fff}
-.ccnt{flex:1;min-width:0}
-.cnm{font-size:13px;font-weight:600;margin-bottom:2px;line-height:1.4}
-.cnm.dn{text-decoration:line-through;opacity:.45}
-.ctp{display:inline-block;font-size:10px;padding:2px 7px;border-radius:7px;background:rgba(0,0,0,.04);color:var(--text2);margin-bottom:3px;margin-right:4px}
-.dark .ctp{background:rgba(255,255,255,.06)}
-.cpr{display:flex;align-items:center;gap:6px;margin-top:3px}
-.cpr .pb{flex:1;height:5px}.cpt{font-size:10px;color:var(--text2);white-space:nowrap}
+.chi{display:flex;align-items:flex-start;gap:10px;padding:11px 16px;border-bottom:1px solid rgba(0,0,0,.03)}.dark .chi{border-color:rgba(255,255,255,.03)}.chi:last-child{border:none}
+.cc{width:25px;height:25px;border-radius:50%;border:2.5px solid var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.3s;flex-shrink:0;margin-top:2px;font-size:12px;color:transparent}.cc.chk{border-color:var(--grn);background:var(--grn);color:#fff}
+.ccnt{flex:1;min-width:0}.cnm{font-size:13px;font-weight:600;margin-bottom:2px;line-height:1.4}.cnm.dn{text-decoration:line-through;opacity:.45}
+.ctp{display:inline-block;font-size:10px;padding:2px 7px;border-radius:7px;background:rgba(0,0,0,.04);color:var(--text2);margin-bottom:3px;margin-right:4px}.dark .ctp{background:rgba(255,255,255,.06)}
+.cpr{display:flex;align-items:center;gap:6px;margin-top:3px}.cpr .pb{flex:1;height:5px}.cpt{font-size:10px;color:var(--text2);white-space:nowrap}
 .ca{display:flex;gap:5px;margin-top:5px;flex-wrap:wrap}
-.cb{padding:3px 9px;border-radius:7px;border:none;font-size:10px;cursor:pointer;transition:.3s;font-family:inherit;font-weight:600}
-.cb:active{transform:scale(.95)}
+.cb{padding:3px 9px;border-radius:7px;border:none;font-size:10px;cursor:pointer;transition:.3s;font-family:inherit;font-weight:600}.cb:active{transform:scale(.95)}
 .cb.p{background:var(--bbg);color:var(--blu)}.dark .cb.p{background:rgba(33,150,243,.12)}
 .cb.e{background:var(--pbg);color:var(--pur)}.dark .cb.e{background:rgba(124,77,255,.12)}
-.cb.d{background:rgba(255,82,82,.08);color:var(--red)}
 .ed{font-size:10px;color:var(--teal);margin-top:3px}
 
-/* SUBTASKS */
 .subtasks{margin-top:6px;padding-right:12px;border-right:2px solid rgba(0,0,0,.06)}
-[dir="ltr"] .subtasks{padding-right:0;border-right:none;padding-left:12px;border-left:2px solid rgba(0,0,0,.06)}
-.dark .subtasks{border-color:rgba(255,255,255,.06)}
+[dir="ltr"] .subtasks{padding-right:0;border-right:none;padding-left:12px;border-left:2px solid rgba(0,0,0,.06)}.dark .subtasks{border-color:rgba(255,255,255,.06)}
 .sub-item{display:flex;align-items:center;gap:8px;padding:5px 0}
-.sub-cc{width:18px;height:18px;border-radius:50%;border:2px solid var(--text2);cursor:pointer;transition:.3s;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent}
-.sub-cc.chk{border-color:var(--grn);background:var(--grn);color:#fff}
+.sub-cc{width:18px;height:18px;border-radius:50%;border:2px solid var(--text2);cursor:pointer;transition:.3s;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent}.sub-cc.chk{border-color:var(--grn);background:var(--grn);color:#fff}
 .sub-nm{font-size:12px;flex:1}.sub-nm.dn{text-decoration:line-through;opacity:.4}
 .sub-del{background:none;border:none;font-size:12px;color:var(--red);cursor:pointer;padding:2px}
-.add-sub{background:none;border:none;font-size:11px;color:var(--pri);cursor:pointer;padding:4px 0;font-family:inherit;font-weight:600}
 
-/* TIMELINE PAGE */
-.tl-page{padding:16px 20px}
-.tl-filter{margin-bottom:16px}
-.tl{position:relative}
+.tl-page{padding:16px 20px}.tl{position:relative}
 .tll{position:absolute;top:0;bottom:0;width:3px;background:rgba(0,0,0,.06);border-radius:2px}
-[dir="rtl"] .tll{right:22px}[dir="ltr"] .tll{left:22px}
-.dark .tll{background:rgba(255,255,255,.06)}
+[dir="rtl"] .tll{right:22px}[dir="ltr"] .tll{left:22px}.dark .tll{background:rgba(255,255,255,.06)}
 .tli{display:flex;gap:16px;margin-bottom:24px;position:relative}
 .tld{width:14px;height:14px;border-radius:50%;flex-shrink:0;z-index:1;margin-top:3px;border:3px solid}
-.tld.ps{background:var(--grn);border-color:var(--grn)}
-.tld.cr{background:var(--pri);border-color:var(--pri);box-shadow:0 0 0 6px rgba(255,140,0,.2);animation:pulse 2s infinite}
-.tld.fu{background:var(--bgc);border-color:var(--text2)}
+.tld.ps{background:var(--grn);border-color:var(--grn)}.tld.cr{background:var(--pri);border-color:var(--pri);box-shadow:0 0 0 6px rgba(255,140,0,.2);animation:pulse 2s infinite}.tld.fu{background:var(--bgc);border-color:var(--text2)}
 .tlc{flex:1;background:var(--bgc);border-radius:14px;padding:14px;box-shadow:var(--sh)}
-.tldt{font-size:10px;color:var(--text2);margin-bottom:2px}
-.tltt{font-size:14px;font-weight:700}
-.tldsc{font-size:11px;color:var(--text2);margin-top:4px;line-height:1.4}
-.tlb{display:inline-block;font-size:9px;padding:2px 8px;border-radius:7px;background:var(--pri);color:#fff;margin-top:6px}
-.tl-cd{font-size:11px;color:var(--teal);margin-top:4px}
+.tldt{font-size:10px;color:var(--text2);margin-bottom:2px}.tltt{font-size:14px;font-weight:700}.tldsc{font-size:11px;color:var(--text2);margin-top:4px;line-height:1.4}
+.tlb{display:inline-block;font-size:9px;padding:2px 8px;border-radius:7px;background:var(--pri);color:#fff;margin-top:6px}.tl-cd{font-size:11px;color:var(--teal);margin-top:4px}
 
-/* STATS */
 .skc{background:linear-gradient(135deg,#FF8C00,#FF6B00);color:#fff;border-radius:var(--r);padding:22px;margin:14px 16px;text-align:center;position:relative;overflow:hidden}
 .skc .sk-blob{position:absolute;width:80px;height:80px;background:rgba(255,255,255,.08);animation:blob 10s infinite;top:-15px;right:-15px}
 .skn{font-size:48px;font-weight:700}.skl{font-size:13px;opacity:.9}.ski{font-size:36px;margin-bottom:6px}
 .pli{display:flex;align-items:center;gap:10px;padding:11px 16px;margin:0 16px 7px;background:var(--bgc);border-radius:14px;box-shadow:var(--sh)}
 .plii{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.plin{flex:1;min-width:0}.plinm{font-size:12px;font-weight:600;margin-bottom:3px}
-.plip{font-size:12px;font-weight:700;flex-shrink:0}
-.cpg{position:relative;width:60px;height:60px;margin:0 auto 6px}
-.cpg svg{transform:rotate(-90deg);width:60px;height:60px}
+.plin{flex:1;min-width:0}.plinm{font-size:12px;font-weight:600;margin-bottom:3px}.plip{font-size:12px;font-weight:700;flex-shrink:0}
+.cpg{position:relative;width:60px;height:60px;margin:0 auto 6px}.cpg svg{transform:rotate(-90deg);width:60px;height:60px}
 .cpg .bg{fill:none;stroke:rgba(0,0,0,.06);stroke-width:6}.dark .cpg .bg{stroke:rgba(255,255,255,.08)}
 .cpg .fg{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset .8s}
 .cpg .pct{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
 
-/* GPA */
 .gps{padding:14px 16px}
 .gpr{background:linear-gradient(135deg,var(--pur),#9C27B0);color:#fff;border-radius:var(--r);padding:22px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden}
 .gpr .gp-blob{position:absolute;width:70px;height:70px;background:rgba(255,255,255,.08);animation:blob 9s infinite;bottom:-10px;left:-10px}
 .gpv{font-size:34px;font-weight:700}.gpg{font-size:15px;margin-top:3px;opacity:.9}
 .gprw{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
-.gpb{background:var(--bgc);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--sh)}
-.gpbv{font-size:17px;font-weight:700;color:var(--pri)}
-.gpbl{font-size:9px;color:var(--text2);margin-top:3px}
+.gpb{background:var(--bgc);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--sh)}.gpbv{font-size:17px;font-weight:700;color:var(--pri)}.gpbl{font-size:9px;color:var(--text2);margin-top:3px}
 .smc{background:var(--bgc);border-radius:var(--r);padding:14px;box-shadow:var(--sh);margin-bottom:10px}
 .smc h4{font-size:14px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
 .sr{display:flex;align-items:center;gap:6px;margin-bottom:7px}
-.sr input{flex:1;padding:9px 10px;border:1.5px solid rgba(0,0,0,.06);border-radius:9px;font-size:12px;font-family:inherit;background:var(--bg);color:var(--text)}
-.dark .sr input{border-color:rgba(255,255,255,.06)}
-.sr select{padding:9px 6px;border:1.5px solid rgba(0,0,0,.06);border-radius:9px;font-size:11px;background:var(--bg);color:var(--text);font-family:inherit;min-width:85px}
-.dark .sr select{border-color:rgba(255,255,255,.06)}
+.sr input{flex:1;padding:9px 10px;border:1.5px solid rgba(0,0,0,.06);border-radius:9px;font-size:12px;font-family:inherit;background:var(--bg);color:var(--text)}.dark .sr input{border-color:rgba(255,255,255,.06)}
+.sr select{padding:9px 6px;border:1.5px solid rgba(0,0,0,.06);border-radius:9px;font-size:11px;background:var(--bg);color:var(--text);font-family:inherit;min-width:85px}.dark .sr select{border-color:rgba(255,255,255,.06)}
 .sr .dls{background:none;border:none;color:var(--red);font-size:16px;cursor:pointer;padding:3px}
-.asb{background:var(--bbg);color:var(--blu);border:none;padding:7px 12px;border-radius:9px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600}
-.dark .asb{background:rgba(33,150,243,.12)}
-.cgb{width:100%;padding:13px;border:none;border-radius:12px;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--pur),#9C27B0);color:#fff;cursor:pointer;margin-top:10px;font-family:inherit;transition:.3s}
-.cgb:active{transform:scale(.97)}
-.asmb{width:100%;padding:10px;border:2px dashed rgba(0,0,0,.08);border-radius:12px;font-size:13px;cursor:pointer;background:none;color:var(--text2);font-family:inherit;margin-bottom:10px}
-.dark .asmb{border-color:rgba(255,255,255,.08)}
-.gadv{padding:12px;background:var(--obg);border-radius:12px;font-size:12px;line-height:1.6;margin-top:10px;color:var(--text)}
-.dark .gadv{background:rgba(255,140,0,.1)}
+.asb{background:var(--bbg);color:var(--blu);border:none;padding:7px 12px;border-radius:9px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600}.dark .asb{background:rgba(33,150,243,.12)}
+.cgb{width:100%;padding:13px;border:none;border-radius:12px;font-size:14px;font-weight:700;background:linear-gradient(135deg,var(--pur),#9C27B0);color:#fff;cursor:pointer;margin-top:10px;font-family:inherit}.cgb:active{transform:scale(.97)}
+.asmb{width:100%;padding:10px;border:2px dashed rgba(0,0,0,.08);border-radius:12px;font-size:13px;cursor:pointer;background:none;color:var(--text2);font-family:inherit;margin-bottom:10px}.dark .asmb{border-color:rgba(255,255,255,.08)}
+.gadv{padding:12px;background:var(--obg);border-radius:12px;font-size:12px;line-height:1.6;margin-top:10px;color:var(--text)}.dark .gadv{background:rgba(255,140,0,.1)}
 
-/* SETTINGS */
-.sti{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bgc);margin:0 16px 7px;border-radius:14px;box-shadow:var(--sh);cursor:pointer;transition:transform .2s}
-.sti:active{transform:scale(.98)}
+.sti{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bgc);margin:0 16px 7px;border-radius:14px;box-shadow:var(--sh);cursor:pointer;transition:transform .2s}.sti:active{transform:scale(.98)}
 .sil{display:flex;align-items:center;gap:10px}.sii{font-size:20px}.sit{font-size:13px;font-weight:600}
-.tg{width:46px;height:26px;border-radius:13px;background:rgba(0,0,0,.1);position:relative;cursor:pointer;transition:.3s;border:none;flex-shrink:0}
-.dark .tg{background:rgba(255,255,255,.1)}.tg.on{background:var(--pri)}
+.tg{width:46px;height:26px;border-radius:13px;background:rgba(0,0,0,.1);position:relative;cursor:pointer;transition:.3s;border:none;flex-shrink:0}.dark .tg{background:rgba(255,255,255,.1)}.tg.on{background:var(--pri)}
 .tgk{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:3px;transition:.3s;box-shadow:0 1px 3px rgba(0,0,0,.15)}
-[dir="rtl"] .tgk{right:3px}[dir="rtl"] .tg.on .tgk{right:23px}
-[dir="ltr"] .tgk{left:3px}[dir="ltr"] .tg.on .tgk{left:23px}
+[dir="rtl"] .tgk{right:3px}[dir="rtl"] .tg.on .tgk{right:23px}[dir="ltr"] .tgk{left:3px}[dir="ltr"] .tg.on .tgk{left:23px}
 
-/* MODAL */
-.mbd{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;opacity:0;transition:opacity .3s}
-.mbd.sh{display:block;opacity:1}
-.mdl{position:fixed;bottom:0;left:0;right:0;background:var(--bgc);border-radius:22px 22px 0 0;z-index:201;transform:translateY(100%);transition:transform .3s;max-height:85vh;overflow-y:auto;padding:18px}
-.mdl.sh{transform:none}
+.mbd{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;opacity:0;transition:opacity .3s}.mbd.sh{display:block;opacity:1}
+.mdl{position:fixed;bottom:0;left:0;right:0;background:var(--bgc);border-radius:22px 22px 0 0;z-index:201;transform:translateY(100%);transition:transform .3s;max-height:85vh;overflow-y:auto;padding:18px}.mdl.sh{transform:none}
 .mh{width:36px;height:4px;background:rgba(0,0,0,.1);border-radius:2px;margin:0 auto 14px}.dark .mh{background:rgba(255,255,255,.1)}
 .mdl h3{font-size:17px;font-weight:700;margin-bottom:14px}
 .mi,.mdl select,.mdl textarea{width:100%;padding:11px 14px;border:2px solid rgba(0,0,0,.06);border-radius:12px;font-size:13px;font-family:inherit;background:var(--bg);color:var(--text);margin-bottom:10px;transition:.3s;-webkit-appearance:none}
@@ -232,547 +159,172 @@ body{font-family:'Segoe UI',Tahoma,sans-serif;background:var(--bg);color:var(--t
 .mi:focus,.mdl select:focus,.mdl textarea:focus{outline:none;border-color:var(--pri)}
 .mdl textarea{resize:vertical;min-height:60px}
 .mb{width:100%;padding:13px;border:none;border-radius:12px;font-size:14px;font-weight:700;cursor:pointer;transition:.3s;font-family:inherit;margin-bottom:7px}
-.mb.pr{background:linear-gradient(135deg,var(--pri),#FF6B00);color:#fff}
-.mb.dg{background:var(--red);color:#fff}
-.mb.sc{background:var(--bg);color:var(--text)}
-.mb:active{transform:scale(.97)}
-.m-row{display:flex;gap:8px;margin-bottom:10px}
-.m-row>*{flex:1}
+.mb.pr{background:linear-gradient(135deg,var(--pri),#FF6B00);color:#fff}.mb.dg{background:var(--red);color:#fff}.mb.sc{background:var(--bg);color:var(--text)}.mb:active{transform:scale(.97)}
+.m-row{display:flex;gap:8px;margin-bottom:10px}.m-row>*{flex:1}
 
-/* TOAST */
-#toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-80px);background:var(--bgc);color:var(--text);padding:10px 20px;border-radius:12px;box-shadow:0 6px 25px rgba(0,0,0,.15);z-index:300;font-size:13px;font-weight:600;transition:transform .4s;white-space:nowrap;max-width:90vw}
-#toast.sh{transform:translateX(-50%) translateY(0)}
-
+#toast{position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-80px);background:var(--bgc);color:var(--text);padding:10px 20px;border-radius:12px;box-shadow:0 6px 25px rgba(0,0,0,.15);z-index:300;font-size:13px;font-weight:600;transition:transform .4s;white-space:nowrap;max-width:90vw}#toast.sh{transform:translateX(-50%) translateY(0)}
 .emp{text-align:center;padding:35px 20px;color:var(--text2)}.emp .ei{font-size:50px;margin-bottom:10px;animation:float 3s ease-in-out infinite}.emp .et{font-size:13px;line-height:1.5}
-.sbh{background:var(--bgc);padding:14px 20px;box-shadow:var(--sh);display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10}
-.sbt{font-size:17px;font-weight:700}
-.abc{margin:16px;padding:18px;background:var(--bgc);border-radius:var(--r);box-shadow:var(--sh);text-align:center}
-.abc .ai{font-size:42px;margin-bottom:10px;animation:float 3s ease-in-out infinite}.abc h3{font-size:17px;font-weight:700;margin-bottom:6px}
-.abc p{font-size:12px;color:var(--text2);line-height:1.5}
+.sbh{background:var(--bgc);padding:14px 20px;box-shadow:var(--sh);display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10}.sbt{font-size:17px;font-weight:700}
+.abc{margin:16px;padding:18px;background:var(--bgc);border-radius:var(--r);box-shadow:var(--sh);text-align:center}.abc .ai{font-size:42px;margin-bottom:10px;animation:float 3s ease-in-out infinite}.abc h3{font-size:17px;font-weight:700;margin-bottom:6px}.abc p{font-size:12px;color:var(--text2);line-height:1.5}
 .nir{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:14px}
-.nir input[type="number"]{width:75px;text-align:center;padding:8px;border:2px solid rgba(0,0,0,.06);border-radius:10px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text)}
-.dark .nir input[type="number"]{border-color:rgba(255,255,255,.06)}
+.nir input[type="number"]{width:75px;text-align:center;padding:8px;border:2px solid rgba(0,0,0,.06);border-radius:10px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text)}.dark .nir input[type="number"]{border-color:rgba(255,255,255,.06)}
 .nir span{font-size:12px;color:var(--text2)}
-
 @media(min-width:500px){body{max-width:480px;margin:0 auto}#nav{max-width:480px;left:50%;transform:translateX(-50%)}}
 </style>
 </head>
 <body>
 <div id="toast"></div>
-
-<!-- ONBOARDING -->
 <div class="onboard" id="onboard">
-  <div class="ob-slide act" id="ob0" style="background:linear-gradient(135deg,#FFB347,#FF8C00)">
-    <div class="ob-blob1"></div><div class="ob-blob2"></div>
-    <button class="ob-skip" onclick="skipOB()">تخطي</button>
-    <div class="ob-char">🚀</div>
-    <div class="ob-title">مرحباً بك!</div>
-    <div class="ob-desc">رحلتك لتصبح مهندس لغة عربية حاسوبي تبدأ من هنا</div>
-    <div class="ob-dots"><span class="act"></span><span></span><span></span></div>
-    <button class="ob-next" onclick="nextOB(1)">←</button>
-  </div>
-  <div class="ob-slide" id="ob1" style="background:linear-gradient(135deg,#7C4DFF,#B388FF)">
-    <div class="ob-blob1"></div><div class="ob-blob2"></div>
-    <button class="ob-skip" onclick="skipOB()">تخطي</button>
-    <div class="ob-char">📚</div>
-    <div class="ob-title">تعلّم بذكاء</div>
-    <div class="ob-desc">تابع تقدمك في اللغة العربية والبرمجة والذكاء الاصطناعي</div>
-    <div class="ob-dots"><span></span><span class="act"></span><span></span></div>
-    <button class="ob-next" onclick="nextOB(2)">←</button>
-  </div>
-  <div class="ob-slide" id="ob2" style="background:linear-gradient(135deg,#FF6B9D,#FF8A80)">
-    <div class="ob-blob1"></div><div class="ob-blob2"></div>
-    <div class="ob-char">🎯</div>
-    <div class="ob-title">حقق حلمك</div>
-    <div class="ob-desc">منحة ماجستير في اللسانيات الحاسوبية بانتظارك!</div>
-    <div class="ob-dots"><span></span><span></span><span class="act"></span></div>
-    <button class="ob-next" onclick="skipOB()">🚀</button>
-  </div>
+<div class="ob-slide act" id="ob0" style="background:linear-gradient(135deg,#FFB347,#FF8C00)"><div class="ob-blob1"></div><div class="ob-blob2"></div><button class="ob-skip" onclick="skipOB()">تخطي</button><div class="ob-char">🚀</div><div class="ob-title">مرحباً بك!</div><div class="ob-desc">رحلتك لتصبح مهندس لغة عربية حاسوبي تبدأ من هنا</div><div class="ob-dots"><span class="act"></span><span></span><span></span></div><button class="ob-next" onclick="nextOB(1)">←</button></div>
+<div class="ob-slide" id="ob1" style="background:linear-gradient(135deg,#7C4DFF,#B388FF)"><div class="ob-blob1"></div><div class="ob-blob2"></div><button class="ob-skip" onclick="skipOB()">تخطي</button><div class="ob-char">📚</div><div class="ob-title">تعلّم بذكاء</div><div class="ob-desc">تابع تقدمك في اللغة العربية والبرمجة والذكاء الاصطناعي</div><div class="ob-dots"><span></span><span class="act"></span><span></span></div><button class="ob-next" onclick="nextOB(2)">←</button></div>
+<div class="ob-slide" id="ob2" style="background:linear-gradient(135deg,#FF6B9D,#FF8A80)"><div class="ob-blob1"></div><div class="ob-blob2"></div><div class="ob-char">🎯</div><div class="ob-title">حقق حلمك</div><div class="ob-desc">منحة ماجستير في اللسانيات الحاسوبية بانتظارك!</div><div class="ob-dots"><span></span><span></span><span class="act"></span></div><button class="ob-next" onclick="skipOB()">🚀</button></div>
 </div>
-
-<!-- HOME -->
 <div id="pg-home" class="page act">
-  <div class="hdr">
-    <div class="hdr-blob"></div><div class="hdr-blob2"></div>
-    <span class="hdr-stars" style="top:15px;right:60px">✦</span>
-    <span class="hdr-stars" style="top:50px;right:30%;animation-delay:.5s">✧</span>
-    <span class="hdr-stars" style="top:25px;left:40%;animation-delay:1s">⟡</span>
-    <div class="hdr-top">
-      <div><h2 id="greet"></h2></div>
-      <div class="hdr-acts">
-        <button class="hdr-btn" onclick="toggleLang()" id="lbtn">EN</button>
-        <button class="hdr-btn" onclick="toggleDark()" id="dbtn">🌙</button>
-      </div>
-    </div>
-    <p class="motiv" id="motiv"></p>
-    <div class="cd-main" id="gcd"></div>
-    <div class="hdr-char" id="hdr-char">👨‍💻</div>
-  </div>
-  <div style="height:8px"></div>
-  <div class="st" id="h-pt-t"></div>
-  <div class="g2" id="h-paths"></div>
-  <div class="st" id="h-cd-t"></div>
-  <div class="gs" id="h-cds"></div>
-  <div class="st" id="h-up-t"></div>
-  <div id="h-up"></div>
-  <div style="height:16px"></div>
+<div class="hdr">
+<div class="hdr-blob"></div><div class="hdr-blob2"></div>
+<span class="hdr-stars" style="top:15px;right:60px">✦</span><span class="hdr-stars" style="top:50px;right:30%;animation-delay:.5s">✧</span>
+<div class="hdr-top"><div><h2 id="greet"></h2></div><div class="hdr-acts"><button class="hdr-btn" onclick="toggleLang()" id="lbtn">EN</button><button class="hdr-btn" onclick="toggleDark()" id="dbtn">🌙</button></div></div>
+<p class="motiv" id="motiv"></p>
+<div id="hdr-grad"></div>
+<div id="hdr-budget"></div>
+<div class="hdr-char" id="hdr-char">👨‍💻</div>
 </div>
-
-<!-- PATHS -->
-<div id="pg-paths" class="page">
-  <div class="sbh"><span class="sbt" id="paths-t"></span></div>
-  <div class="tb" id="p-tabs"></div>
-  <div id="p-list"></div>
-  <div style="height:16px"></div>
+<div style="height:8px"></div>
+<div class="st" id="h-pt-t"></div><div class="g2" id="h-paths"></div>
+<div class="st" id="h-cd-t"></div><div class="gs" id="h-cds"></div>
+<div class="st" id="h-up-t"></div><div id="h-up"></div>
+<div style="height:16px"></div>
 </div>
-
-<!-- DETAIL -->
-<div id="pg-detail" class="page">
-  <div class="dh">
-    <button class="bbk" onclick="goBack()" id="bkb">→</button>
-    <div class="dta"><div class="dt" id="d-title"></div><div class="ds" id="d-sub"></div></div>
-  </div>
-  <div class="dpw" id="d-prog"></div>
-  <div id="d-secs"></div>
-  <div style="height:16px"></div>
-</div>
-
-<!-- TIMELINE -->
-<div id="pg-timeline" class="page">
-  <div class="sbh"><span class="sbt" id="tl-t"></span></div>
-  <div class="tl-page" id="tl-content"></div>
-  <div style="height:16px"></div>
-</div>
-
-<!-- STATS -->
-<div id="pg-stats" class="page">
-  <div class="sbh"><span class="sbt" id="stats-t"></span></div>
-  <div class="tb" id="s-tabs"></div>
-  <div id="s-cnt"></div>
-  <div style="height:16px"></div>
-</div>
-
-<!-- SETTINGS -->
-<div id="pg-settings" class="page">
-  <div class="sbh"><span class="sbt" id="set-t"></span></div>
-  <div style="height:10px"></div>
-  <div id="set-list"></div>
-  <div class="abc">
-    <div class="ai">🧑‍🔬</div>
-    <h3>Arabic NLP Journey</h3>
-    <p id="abt"></p>
-    <p style="margin-top:6px;font-size:10px;color:var(--text2)">v2.0</p>
-  </div>
-</div>
-
-<!-- NAV -->
+<div id="pg-paths" class="page"><div class="sbh"><span class="sbt" id="paths-t"></span></div><div class="tb" id="p-tabs"></div><div id="p-list"></div></div>
+<div id="pg-detail" class="page"><div class="dh"><button class="bbk" onclick="goBack()" id="bkb">→</button><div class="dta"><div class="dt" id="d-title"></div><div class="ds" id="d-sub"></div></div></div><div class="dpw" id="d-prog"></div><div id="d-secs"></div></div>
+<div id="pg-timeline" class="page"><div class="sbh"><span class="sbt" id="tl-t"></span></div><div class="tl-page" id="tl-content"></div></div>
+<div id="pg-stats" class="page"><div class="sbh"><span class="sbt" id="stats-t"></span></div><div class="tb" id="s-tabs"></div><div id="s-cnt"></div></div>
+<div id="pg-settings" class="page"><div class="sbh"><span class="sbt" id="set-t"></span></div><div style="height:10px"></div><div id="set-list"></div><div class="abc"><div class="ai">🧑‍🔬</div><h3>Arabic NLP Journey</h3><p id="abt"></p><p style="margin-top:6px;font-size:10px;color:var(--text2)">v2.0</p></div></div>
 <nav id="nav">
-  <button class="ni act" data-p="home"><span class="ico">🏠</span><span data-t="nH">الرئيسية</span></button>
-  <button class="ni" data-p="paths"><span class="ico">📋</span><span data-t="nP">المسارات</span></button>
-  <button class="ni" data-p="timeline"><span class="ico">📅</span><span data-t="nTL">التايم لاين</span></button>
-  <button class="ni" data-p="stats"><span class="ico">📊</span><span data-t="nS">الإحصائيات</span></button>
-  <button class="ni" data-p="settings"><span class="ico">⚙️</span><span data-t="nSt">الإعدادات</span></button>
+<button class="ni act" data-p="home"><span class="ico">🏠</span><span data-t="nH">الرئيسية</span></button>
+<button class="ni" data-p="paths"><span class="ico">📋</span><span data-t="nP">المسارات</span></button>
+<button class="ni" data-p="timeline"><span class="ico">📅</span><span data-t="nTL">التايم لاين</span></button>
+<button class="ni" data-p="stats"><span class="ico">📊</span><span data-t="nS">الإحصائيات</span></button>
+<button class="ni" data-p="settings"><span class="ico">⚙️</span><span data-t="nSt">الإعدادات</span></button>
 </nav>
-
-<div class="mbd" id="mbd" onclick="closeMdl()"></div>
-<div class="mdl" id="mdl"></div>
-
+<div class="mbd" id="mbd" onclick="closeMdl()"></div><div class="mdl" id="mdl"></div>
 <script>
-// ======================== STATE ========================
-var S={lang:'ar',dark:false,cp:'home',pp:null,pf:'all',stab:'ov',ck:{},ip:{},tasks:[],streak:{c:0,ld:null},
-gpa:{sems:[{id:1,subs:[{n:'',g:'excellent'}]}]},gpaR:null,detBr:null,cdMode:{},onboarded:false,
-subtasks:{},editedItems:{}};
+var S={lang:'ar',dark:false,cp:'home',pp:null,pf:'all',stab:'ov',ck:{},ip:{},streak:{c:0,ld:null},gpa:{sems:[{id:1,subs:[{n:'',g:'excellent'}]}]},gpaR:null,detBr:null,cdMode:{},onboarded:false,subtasks:{},editedItems:{},hiddenItems:{},dailyHours:3};
+function ld(){try{var s=localStorage.getItem('nlpjs3');if(s){var p=JSON.parse(s);for(var k in p)S[k]=p[k]}}catch(e){}}
+function sv(){try{localStorage.setItem('nlpjs3',JSON.stringify(S))}catch(e){}}
 
-function ld(){try{var s=localStorage.getItem('nlpjs2');if(s){var p=JSON.parse(s);for(var k in p)S[k]=p[k]}}catch(e){}}
-function sv(){try{localStorage.setItem('nlpjs2',JSON.stringify(S))}catch(e){}}
+var MOTIVATIONS={ar:["كل يوم تتعلم فيه شيء جديد، تقترب من حلمك 🌟","العلم يُؤتى ولا يأتي.. فاسعَ إليه 📚","أنت لا تبني مسيرة فقط، بل تصنع تاريخاً 🏆","اللغة العربية تنتظر من يخدمها بالتقنية 💪","كل سطر كود هو لبنة في مستقبلك 🧱","الطريق طويل لكن كل خطوة تحسب ✨","لا تقارن نفسك بالآخرين، قارن نفسك بالأمس 📈","المنحة ليست حلماً بعيداً، إنها هدف قابل للتحقيق 🎯","استثمر في عقلك فهو أفضل استثمار 🧠","حلمك يستحق كل التعب والسهر 💫"],en:["Every day you learn brings you closer to your dream 🌟","Knowledge must be sought — go after it 📚","You're making history, not just a career 🏆","Arabic awaits someone like you to serve it with tech 💪","Every line of code is a brick in your future 🧱","The road is long but every step counts ✨","Compare yourself to yesterday, not others 📈","The scholarship is an achievable goal 🎯","Invest in your mind — best investment 🧠","Your dream deserves every effort 💫"]};
+function getMotiv(){var l=MOTIVATIONS[S.lang];return l[Math.floor(Date.now()/(1e3*60*60*3))%l.length]}
+var HDR_CHARS=['👨‍💻','🧑‍🔬','📖','🎓','🚀','💡','🧠','⚡'];function getHdrChar(){return HDR_CHARS[Math.floor(Date.now()/(1e3*60*60*6))%HDR_CHARS.length]}
 
-// ======================== MOTIVATIONAL MESSAGES ========================
-var MOTIVATIONS={
-ar:[
-"كل يوم تتعلم فيه شيء جديد، تقترب أكثر من حلمك 🌟",
-"العلم يُؤتى ولا يأتي.. فاسعَ إليه 📚",
-"أنت لا تبني مسيرة مهنية فقط، بل تصنع تاريخاً 🏆",
-"اللغة العربية تنتظر من يخدمها بالتقنية.. وأنت ذلك الشخص 💪",
-"كل سطر كود تكتبه هو لبنة في مستقبلك 🧱",
-"الطريق طويل لكن كل خطوة تحسب ✨",
-"لا تقارن نفسك بالآخرين، قارن نفسك بالأمس 📈",
-"المنحة ليست حلماً بعيداً، إنها هدف قابل للتحقيق 🎯",
-"استثمر في عقلك، فهو أفضل استثمار 🧠",
-"النجاح ليس نهاية الطريق، بل بداية طريق أفضل 🚀",
-"٢٠٢٨ ستكون سنة التخرج والتحول الكبير 🎓",
-"تعلّم اليوم ما يحتاجه العالم غداً 🌍",
-"أنت على بُعد خطوات من أن تكون مميزاً 🌈",
-"الصبر مفتاح الفرج، والمثابرة مفتاح النجاح 🔑",
-"حلمك يستحق كل التعب والسهر 💫"
-],
-en:[
-"Every new thing you learn brings you closer to your dream 🌟",
-"Knowledge must be sought — so go after it 📚",
-"You're not just building a career, you're making history 🏆",
-"Arabic language awaits someone to serve it with tech — that's YOU 💪",
-"Every line of code is a brick in your future 🧱",
-"The road is long but every step counts ✨",
-"Don't compare yourself to others, compare to yesterday 📈",
-"The scholarship isn't a distant dream — it's an achievable goal 🎯",
-"Invest in your mind — it's the best investment 🧠",
-"Success isn't the end, it's the beginning of a better path 🚀",
-"2028 will be the year of graduation and transformation 🎓",
-"Learn today what the world needs tomorrow 🌍",
-"You're just steps away from being exceptional 🌈",
-"Patience is the key, perseverance is the master key 🔑",
-"Your dream deserves every effort and late night 💫"
-]};
-
-function getMotiv(){
-  var list=MOTIVATIONS[S.lang];
-  var idx=Math.floor(Date.now()/(1000*60*60*3))%list.length; // changes every 3 hours
-  return list[idx];
-}
-
-var HDR_CHARS=['👨‍💻','🧑‍🔬','📖','🎓','🚀','💡','🧠','⚡'];
-function getHdrChar(){var idx=Math.floor(Date.now()/(1000*60*60*6))%HDR_CHARS.length;return HDR_CHARS[idx]}
-
-// ======================== TR ========================
-var TR={
-ar:{nH:'الرئيسية',nP:'المسارات',nTL:'التايم لاين',nS:'الإحصائيات',nSt:'الإعدادات',
-gm:'صباح الخير',ga:'مساء الخير',ge:'مساء الخير',
-rem:'باقي',days:'يوم',weeks:'أسبوع',months:'شهر',grad:'على التخرج',
-mp:'🛤️ المسارات الرئيسية',items:'عنصر',cds:'⏳ العدادات',
-upc:'📅 القادم',noUp:'لا أحداث قادمة 🎉',pathsT:'📋 المسارات',all:'الكل',
-save:'حفظ',cancel:'إلغاء',del:'حذف',confirm:'تأكيد',
-statsT:'📊 الإحصائيات',ov:'نظرة عامة',gpaC:'حاسبة التقدير',
-streakT:'أيام متتالية 🔥',prog:'التقدم',updProg:'📊 تحديث',
-edit:'✏️ تعديل',addSub2:'+ فرعي',delItem:'حذف',
-book:'كتاب',video:'فيديو',practice:'ممارسة',pages:'صفحة',sections:'قسم',units:'وحدة',
-estF:'⏰ الانتهاء المتوقع',estBranch:'⏰ إنجاز المسار المتوقع',
-settingsT:'⚙️ الإعدادات',darkM:'الوضع الليلي',langS:'اللغة',
-expD:'تصدير البيانات',impD:'استيراد البيانات',delAll:'حذف كل البيانات',
-delConf:'هل أنت متأكد؟ سيتم حذف كل بياناتك!',deleted:'تم حذف البيانات',exported:'تم التصدير ✅',
-imported:'تم الاستيراد بنجاح ✅',about:'تطبيق تتبع رحلة التعلم لتصبح مهندس لغة عربية حاسوبي 🚀',
-sem:'الفصل',addSub:'+ مادة',addSem:'+ فصل جديد',calcGpa:'حساب التقدير',
-excellent:'ممتاز',vgood:'جيد جداً',good:'جيد',pass:'مقبول',weak:'ضعيف',vweak:'ضعيف جداً',
-cumGrade:'التقدير التراكمي',gpa4:'GPA 4.0',ukClass:'UK Class',
-advGpa:'💡 نصيحة: ',adv1:'ممتاز! تقديرك مؤهل لأفضل المنح 🏆',adv2:'جيد. حاول رفع تقديرك لفرص منح أفضل 📈',adv3:'ركز على تحسين درجاتك القادمة 💪',
-youHere:'📍 أنت هنا',markDone:'تم ✓',markUn:'تم إلغاء التعليم',
-progSaved:'تم تحديث التقدم ✅',
-tlTitle:'📅 التايم لاين',
-itemName:'اسم العنصر',itemType:'النوع',itemTotal:'الإجمالي',
-addItem:'+ إضافة عنصر',addSubtask:'اسم المهمة الفرعية',
-subName:'اسم المادة',editItem:'تعديل العنصر',
-daysUnit:'يوم',weeksUnit:'أسبوع',monthsUnit:'شهر'
-},
-en:{nH:'Home',nP:'Paths',nTL:'Timeline',nS:'Stats',nSt:'Settings',
-gm:'Good morning',ga:'Good afternoon',ge:'Good evening',
-rem:'',days:'days',weeks:'weeks',months:'months',grad:'until graduation',
-mp:'🛤️ Main Paths',items:'items',cds:'⏳ Countdowns',
-upc:'📅 Upcoming',noUp:'No upcoming events 🎉',pathsT:'📋 Paths',all:'All',
-save:'Save',cancel:'Cancel',del:'Delete',confirm:'Confirm',
-statsT:'📊 Statistics',ov:'Overview',gpaC:'GPA Calculator',
-streakT:'Day Streak 🔥',prog:'Progress',updProg:'📊 Update',
-edit:'✏️ Edit',addSub2:'+ Subtask',delItem:'Delete',
-book:'Book',video:'Video',practice:'Practice',pages:'pages',sections:'sections',units:'units',
-estF:'⏰ Est. completion',estBranch:'⏰ Est. path completion',
-settingsT:'⚙️ Settings',darkM:'Dark Mode',langS:'Language',
-expD:'Export Data',impD:'Import Data',delAll:'Delete All Data',
-delConf:'Are you sure? All data will be deleted!',deleted:'Data deleted',exported:'Exported ✅',
-imported:'Imported successfully ✅',about:'Track your journey to become an Arabic NLP Engineer 🚀',
-sem:'Semester',addSub:'+ Subject',addSem:'+ New Semester',calcGpa:'Calculate GPA',
-excellent:'Excellent',vgood:'Very Good',good:'Good',pass:'Pass',weak:'Weak',vweak:'Very Weak',
-cumGrade:'Cumulative Grade',gpa4:'GPA 4.0',ukClass:'UK Class',
-advGpa:'💡 Tip: ',adv1:'Excellent! Qualifies for top scholarships 🏆',adv2:'Good. Try improving for better scholarship chances 📈',adv3:'Focus on improving upcoming grades 💪',
-youHere:'📍 You are here',markDone:'Done ✓',markUn:'Unmarked',
-progSaved:'Progress updated ✅',
-tlTitle:'📅 Timeline',
-itemName:'Item name',itemType:'Type',itemTotal:'Total',
-addItem:'+ Add Item',addSubtask:'Subtask name',
-subName:'Subject name',editItem:'Edit Item',
-daysUnit:'days',weeksUnit:'weeks',monthsUnit:'months'
-}};
+var TR={ar:{nH:'الرئيسية',nP:'المسارات',nTL:'التايم لاين',nS:'الإحصائيات',nSt:'الإعدادات',gm:'صباح الخير',ga:'مساء الخير',ge:'مساء الخير',mp:'🛤️ المسارات',items:'عنصر',cds:'⏳ العدادات',upc:'📅 القادم',noUp:'لا أحداث قادمة 🎉',pathsT:'📋 المسارات',all:'الكل',save:'حفظ',cancel:'إلغاء',del:'حذف',confirm:'تأكيد',statsT:'📊 الإحصائيات',ov:'نظرة عامة',gpaC:'حاسبة التقدير',streakT:'أيام متتالية 🔥',prog:'التقدم',updProg:'📊 تحديث',edit:'✏️ تعديل',addSub2:'+ فرعي',book:'كتاب',video:'فيديو',practice:'ممارسة',pages:'صفحة',sections:'قسم',units:'وحدة',estF:'⏰ الانتهاء',estBranch:'⏰ إنجاز المسار',settingsT:'⚙️ الإعدادات',darkM:'الوضع الليلي',langS:'اللغة',expD:'تصدير البيانات',impD:'استيراد البيانات',delAll:'حذف كل البيانات',delConf:'هل أنت متأكد؟',deleted:'تم الحذف',exported:'تم التصدير ✅',imported:'تم الاستيراد ✅',about:'رحلتك لتصبح مهندس NLP عربي 🚀',sem:'الفصل',addSub:'+ مادة',addSem:'+ فصل',calcGpa:'حساب التقدير',excellent:'ممتاز',vgood:'جيد جداً',good:'جيد',pass:'مقبول',weak:'ضعيف',vweak:'ضعيف جداً',cumGrade:'التراكمي',gpa4:'GPA 4.0',ukClass:'UK Class',advGpa:'💡 ',adv1:'مؤهل لأفضل المنح 🏆',adv2:'حاول رفع تقديرك 📈',adv3:'ركز على التحسين 💪',youHere:'📍 أنت هنا',markDone:'تم ✓',markUn:'تم الإلغاء',progSaved:'تم ✅',tlTitle:'📅 التايم لاين',itemName:'الاسم',editItem:'تعديل',addSubtask:'مهمة فرعية',subName:'المادة',daysUnit:'يوم',weeksUnit:'أسبوع',monthsUnit:'شهر',elapsed:'مضى',remaining:'باقي',budget:'ميزانية الوقت',needed:'المطلوب',available:'المتاح',done2:'أُنجز',reserve:'احتياطي',hDay:'س/يوم',hour:'ساعة',hRemain:'ساعة متبقية'},en:{nH:'Home',nP:'Paths',nTL:'Timeline',nS:'Stats',nSt:'Settings',gm:'Good morning',ga:'Good afternoon',ge:'Good evening',mp:'🛤️ Paths',items:'items',cds:'⏳ Countdowns',upc:'📅 Upcoming',noUp:'No events 🎉',pathsT:'📋 Paths',all:'All',save:'Save',cancel:'Cancel',del:'Delete',confirm:'Confirm',statsT:'📊 Statistics',ov:'Overview',gpaC:'GPA Calculator',streakT:'Day Streak 🔥',prog:'Progress',updProg:'📊 Update',edit:'✏️ Edit',addSub2:'+ Sub',book:'Book',video:'Video',practice:'Practice',pages:'p.',sections:'sec.',units:'units',estF:'⏰ Est.',estBranch:'⏰ Path est.',settingsT:'⚙️ Settings',darkM:'Dark Mode',langS:'Language',expD:'Export',impD:'Import',delAll:'Delete All',delConf:'Are you sure?',deleted:'Deleted',exported:'Exported ✅',imported:'Imported ✅',about:'Your Arabic NLP journey 🚀',sem:'Semester',addSub:'+ Subject',addSem:'+ Semester',calcGpa:'Calculate',excellent:'Excellent',vgood:'Very Good',good:'Good',pass:'Pass',weak:'Weak',vweak:'Very Weak',cumGrade:'Cumulative',gpa4:'GPA 4.0',ukClass:'UK Class',advGpa:'💡 ',adv1:'Top scholarships! 🏆',adv2:'Try improving 📈',adv3:'Focus on grades 💪',youHere:'📍 You are here',markDone:'Done ✓',markUn:'Unmarked',progSaved:'Updated ✅',tlTitle:'📅 Timeline',itemName:'Name',editItem:'Edit',addSubtask:'Subtask',subName:'Subject',daysUnit:'days',weeksUnit:'weeks',monthsUnit:'months',elapsed:'Elapsed',remaining:'Left',budget:'Time Budget',needed:'Needed',available:'Available',done2:'Done',reserve:'Reserve',hDay:'h/day',hour:'h',hRemain:'h remaining'}};
 function t(k){return TR[S.lang][k]||TR.ar[k]||k}
 
-// ======================== DATA ========================
-var DATA={
-countdowns:[
-{id:'grad',icon:'🎓',name:'التخرج',nameEn:'Graduation',date:'2028-06-30'},
-{id:'income',icon:'💰',name:'أول دخل',nameEn:'First Income',date:'2027-08-01'},
-{id:'schol',icon:'🌍',name:'تقديم المنح',nameEn:'Scholarships',date:'2028-09-01'},
-{id:'exams1',icon:'📝',name:'امتحانات ترم 1',nameEn:'Sem 1 Exams',date:'2027-01-15'},
-{id:'exams2',icon:'📝',name:'امتحانات ترم 2',nameEn:'Sem 2 Exams',date:'2027-05-15'}
-],
-timeline:[
-{date:'2026-03-01',title:'بداية الرحلة 🚀',titleEn:'Journey Start 🚀',desc:'انطلاق رحلة التعلم الذاتي',descEn:'Self-learning journey begins'},
-{date:'2026-06-01',title:'امتحانات سنة 2',titleEn:'Year 2 Exams',desc:'إنهاء السنة الثانية بالكلية',descEn:'Completing 2nd year'},
-{date:'2026-08-01',title:'نهاية التأسيس 🏗️',titleEn:'Foundation End 🏗️',desc:'إتمام أساسيات Python والنحو والصرف',descEn:'Complete Python, Grammar, Morphology basics'},
-{date:'2027-01-15',title:'امتحانات سنة 3 - ترم 1',titleEn:'Year 3 Sem 1 Exams',desc:'الفصل الدراسي الأول',descEn:'First semester exams'},
-{date:'2027-05-15',title:'امتحانات سنة 3 - ترم 2',titleEn:'Year 3 Sem 2 Exams',desc:'الفصل الدراسي الثاني',descEn:'Second semester exams'},
-{date:'2027-08-01',title:'أول دخل 💰',titleEn:'First Income 💰',desc:'بداية العمل الحر في NLP',descEn:'Start freelancing in NLP'},
-{date:'2028-01-15',title:'امتحانات سنة 4 - ترم 1',titleEn:'Year 4 Sem 1 Exams',desc:'الفصل الدراسي الأول',descEn:'First semester exams'},
-{date:'2028-06-30',title:'التخرج 🎓',titleEn:'Graduation 🎓',desc:'إنهاء كلية اللغة العربية - الأزهر',descEn:'Complete Arabic Language Faculty - Al-Azhar'},
-{date:'2028-09-01',title:'تقديم المنح 🌍',titleEn:'Apply Scholarships 🌍',desc:'Chevening, Fulbright وغيرها',descEn:'Chevening, Fulbright and more'},
-{date:'2029-09-01',title:'بدء الماجستير 🎯',titleEn:'Start Masters 🎯',desc:'ماجستير لسانيات حاسوبية',descEn:'Computational Linguistics Masters'}
-],
+// TIME RATES: minutes per unit, per root
+var RATES={root_arabic:{book:4,video:45,practice:45},root_nlp:{book:6,video:90,practice:120},root_reading:{book:2.5,video:45,practice:30}};
+
+var DATA={journeyStart:'2026-03-01',
+countdowns:[{id:'grad',icon:'🎓',name:'التخرج',nameEn:'Graduation',date:'2028-06-30'},{id:'income',icon:'💰',name:'أول دخل',nameEn:'First Income',date:'2027-08-01'},{id:'schol',icon:'🌍',name:'المنح',nameEn:'Scholarships',date:'2028-09-01'},{id:'exams1',icon:'📝',name:'امتحانات ترم 1',nameEn:'Sem 1 Exams',date:'2027-01-15'},{id:'exams2',icon:'📝',name:'امتحانات ترم 2',nameEn:'Sem 2 Exams',date:'2027-05-15'}],
+timeline:[{date:'2026-03-01',title:'بداية الرحلة 🚀',titleEn:'Journey Start 🚀',desc:'انطلاق التعلم الذاتي',descEn:'Self-learning begins'},{date:'2026-06-01',title:'امتحانات سنة 2',titleEn:'Year 2 Exams',desc:'إنهاء السنة الثانية',descEn:'2nd year done'},{date:'2026-08-01',title:'نهاية التأسيس 🏗️',titleEn:'Foundation End 🏗️',desc:'أساسيات Python والنحو',descEn:'Python & Grammar basics'},{date:'2027-01-15',title:'امتحانات سنة 3 ترم 1',titleEn:'Y3 Sem1 Exams',desc:'الفصل الأول',descEn:'First semester'},{date:'2027-05-15',title:'امتحانات سنة 3 ترم 2',titleEn:'Y3 Sem2 Exams',desc:'الفصل الثاني',descEn:'Second semester'},{date:'2027-08-01',title:'أول دخل 💰',titleEn:'First Income 💰',desc:'العمل الحر NLP',descEn:'NLP Freelancing'},{date:'2028-01-15',title:'امتحانات سنة 4 ترم 1',titleEn:'Y4 Sem1 Exams',desc:'الفصل الأول',descEn:'First semester'},{date:'2028-06-30',title:'التخرج 🎓',titleEn:'Graduation 🎓',desc:'كلية اللغة العربية',descEn:'Arabic Faculty'},{date:'2028-09-01',title:'تقديم المنح 🌍',titleEn:'Scholarships 🌍',desc:'Chevening, Fulbright',descEn:'Chevening, Fulbright'},{date:'2029-09-01',title:'الماجستير 🎯',titleEn:'Masters 🎯',desc:'لسانيات حاسوبية',descEn:'Computational Linguistics'}],
 roots:[
 {id:'root_arabic',name:'اللغة العربية',nameEn:'Arabic Language',icon:'🌳',branches:[
-  {id:'b_sounds',name:'الأصوات والتجويد',nameEn:'Phonetics & Tajweed',icon:'🔊',sections:[
-    {name:'الأصوات',nameEn:'Phonetics',items:[
-      {id:'s1',name:'الأصوات: المدخل لعلم أصوات العربية – غانم قدوري',type:'book',total:300},
-      {id:'s2',name:'علم الأصوات – كمال بشر',type:'book',total:400},
-      {id:'s3',name:'الدراسات الصوتية – غانم قدوري',type:'book',total:350}]},
-    {name:'التجويد',nameEn:'Tajweed',items:[
-      {id:'s4',name:'التجويد المصور – أيمن سويد',type:'video',total:50},
-      {id:'s5',name:'الميسر في التجويد',type:'book',total:250},
-      {id:'s6',name:'تحقيق المنال شرح تحفة الأطفال',type:'book',total:200}]}
-  ]},
-  {id:'b_sarf',name:'الصرف ⭐',nameEn:'Morphology ⭐',icon:'📐',sections:[
-    {name:'مرحلة 1',nameEn:'Phase 1',items:[
-      {id:'sf1',name:'قواعد الصرف – عالم الأدب',type:'video',total:30},
-      {id:'sf2',name:'الأساس في الصرف – الزاهدي',type:'book',total:320},
-      {id:'sf3',name:'شرح متن البناء – محمد رشيد',type:'video',total:20},
-      {id:'sf4',name:'تلخيص الأساس',type:'book',total:150}]},
-    {name:'مرحلة 2',nameEn:'Phase 2',items:[
-      {id:'sf5',name:'لامية الأفعال – الهرري',type:'book',total:300},
-      {id:'sf6',name:'حفظ لامية الأفعال',type:'practice',total:30},
-      {id:'sf7',name:'مختصر الخطيب',type:'book',total:250},
-      {id:'sf8',name:'التطبيق الصرفي – الراجحي',type:'book',total:280},
-      {id:'sf9',name:'دروس التصريف',type:'book',total:200}]}
-  ]},
-  {id:'b_nahw',name:'النحو ⭐',nameEn:'Grammar ⭐',icon:'📝',sections:[
-    {name:'مدخل',nameEn:'Introduction',items:[
-      {id:'n1',name:'مدخل علم اللغة – العمري',type:'video',total:6},
-      {id:'n2',name:'نشأة النحو – الطنطاوي',type:'book',total:250},
-      {id:'n3',name:'المدارس النحوية – ضيف',type:'book',total:350}]},
-    {name:'تأسيسي',nameEn:'Foundation',items:[
-      {id:'n4',name:'التحليل النحوي – العمري',type:'video',total:15},
-      {id:'n5',name:'قواعد النحو – عالم الأدب',type:'video',total:40},
-      {id:'n6',name:'النحو الواضح – الجارم',type:'book',total:380},
-      {id:'n7',name:'التطبيق النحوي – الراجحي',type:'book',total:300},
-      {id:'n8',name:'مفاتيح الإعراب',type:'book',total:200}]},
-    {name:'متقدم',nameEn:'Advanced',items:[
-      {id:'n9',name:'حفظ نظم عبيد ربه',type:'practice',total:40},
-      {id:'n10',name:'أيسر الشروح – الحربي',type:'book',total:400},
-      {id:'n11',name:'التحفة السنية',type:'book',total:350}]}
-  ]},
-  {id:'b_balagha',name:'البلاغة',nameEn:'Rhetoric',icon:'🎨',sections:[
-    {name:'البلاغة',nameEn:'Rhetoric',items:[
-      {id:'bl1',name:'البلاغة الواضحة',type:'book',total:300},
-      {id:'bl2',name:'جواهر البلاغة',type:'book',total:350},
-      {id:'bl3',name:'البلاغة تطور وتاريخ',type:'book',total:280},
-      {id:'bl4',name:'المنهاج الواضح',type:'book',total:400}]}
-  ]},
-  {id:'b_dalala',name:'الدلالة ⭐',nameEn:'Semantics ⭐',icon:'🎯',sections:[
-    {name:'الدلالة',nameEn:'Semantics',items:[
-      {id:'dl1',name:'علم الدلالة – مختار عمر',type:'book',total:350},
-      {id:'dl2',name:'الدلالة والتخاطب – يونس',type:'book',total:300},
-      {id:'dl3',name:'التطور اللغوي',type:'book',total:250},
-      {id:'dl4',name:'فهم الفهم',type:'book',total:300}]}
-  ]},
-  {id:'b_fiqh',name:'فقه اللغة',nameEn:'Philology',icon:'🔬',sections:[
-    {name:'فقه اللغة',nameEn:'Philology',items:[
-      {id:'fq1',name:'فقه اللغة – الحمد',type:'book',total:250},
-      {id:'fq2',name:'فصول في فقه العربية',type:'book',total:300},
-      {id:'fq3',name:'اللهجات – بشر',type:'book',total:300}]}
-  ]},
-  {id:'b_dict',name:'المعاجم',nameEn:'Lexicography',icon:'📚',sections:[
-    {name:'المعاجم',nameEn:'Lexicography',items:[
-      {id:'dc1',name:'دورة فقه اللغة – فهمي',type:'video',total:8},
-      {id:'dc2',name:'المعجم العربي – نصار',type:'book',total:400},
-      {id:'dc3',name:'المصباح المنير',type:'book',total:500}]}
-  ]},
-  {id:'b_ling',name:'اللسانيات',nameEn:'Linguistics',icon:'🧠',sections:[
-    {name:'عامة',nameEn:'General',items:[
-      {id:'lg1',name:'مبادئ اللسانيات – قدور',type:'book',total:300},
-      {id:'lg2',name:'علم اللغة – السعران',type:'book',total:300},
-      {id:'lg3',name:'مدخل اللسانيات – يونس',type:'book',total:280}]},
-    {name:'حاسوبية ⭐',nameEn:'Computational ⭐',items:[
-      {id:'lg4',name:'اللغة والحاسوب – نبيل علي ⭐',type:'book',total:450,star:true},
-      {id:'lg5',name:'المعالجة الآلية – سلوى حمادة',type:'book',total:300},
-      {id:'lg6',name:'ميكنة اللغة – رأفت الكمار',type:'book',total:350},
-      {id:'lg7',name:'CAMeL Lab',type:'practice',total:20},
-      {id:'lg8',name:'Quran Corpus',type:'practice',total:10}]}
-  ]},
-  {id:'b_qiraat',name:'القراءات',nameEn:'Quranic Readings',icon:'📕',sections:[
-    {name:'القراءات',nameEn:'Readings',items:[
-      {id:'qr1',name:'المدخل – السندي',type:'book',total:200},
-      {id:'qr2',name:'القراءات – قابة',type:'book',total:300},
-      {id:'qr3',name:'الشاطبية',type:'book',total:200},
-      {id:'qr4',name:'الوافي – القاضي',type:'book',total:400},
-      {id:'qr5',name:'ختمة بالسبع',type:'practice',total:30}]}
-  ]},
-  {id:'b_college',name:'الكلية',nameEn:'College',icon:'🎓',sections:[
-    {name:'مواد الكلية',nameEn:'College',items:[
-      {id:'cl1',name:'مواد سنة 2',type:'practice',total:1},
-      {id:'cl2',name:'مواد سنة 3',type:'practice',total:1},
-      {id:'cl3',name:'مواد سنة 4',type:'practice',total:1}]}
-  ]}
+{id:'b_sounds',name:'الأصوات والتجويد',nameEn:'Phonetics',icon:'🔊',sections:[{name:'الأصوات',nameEn:'Phonetics',items:[{id:'s1',name:'المدخل لعلم أصوات العربية – غانم قدوري',type:'book',total:300},{id:'s2',name:'علم الأصوات – كمال بشر',type:'book',total:400},{id:'s3',name:'الدراسات الصوتية – غانم قدوري',type:'book',total:350}]},{name:'التجويد',nameEn:'Tajweed',items:[{id:'s4',name:'التجويد المصور – أيمن سويد',type:'video',total:50},{id:'s5',name:'الميسر في التجويد',type:'book',total:250},{id:'s6',name:'تحقيق المنال',type:'book',total:200}]}]},
+{id:'b_sarf',name:'الصرف ⭐',nameEn:'Morphology ⭐',icon:'📐',sections:[{name:'مرحلة 1',nameEn:'Phase 1',items:[{id:'sf1',name:'قواعد الصرف – عالم الأدب',type:'video',total:30},{id:'sf2',name:'الأساس في الصرف – الزاهدي',type:'book',total:320},{id:'sf3',name:'شرح متن البناء – محمد رشيد',type:'video',total:20},{id:'sf4',name:'تلخيص الأساس',type:'book',total:150}]},{name:'مرحلة 2',nameEn:'Phase 2',items:[{id:'sf5',name:'لامية الأفعال – الهرري',type:'book',total:300},{id:'sf6',name:'حفظ لامية الأفعال',type:'practice',total:30},{id:'sf7',name:'مختصر الخطيب',type:'book',total:250},{id:'sf8',name:'التطبيق الصرفي – الراجحي',type:'book',total:280},{id:'sf9',name:'دروس التصريف',type:'book',total:200}]}]},
+{id:'b_nahw',name:'النحو ⭐',nameEn:'Grammar ⭐',icon:'📝',sections:[{name:'مدخل',nameEn:'Intro',items:[{id:'n1',name:'مدخل علم اللغة – العمري',type:'video',total:6},{id:'n2',name:'نشأة النحو – الطنطاوي',type:'book',total:250},{id:'n3',name:'المدارس النحوية – ضيف',type:'book',total:350}]},{name:'تأسيسي',nameEn:'Foundation',items:[{id:'n4',name:'التحليل النحوي – العمري',type:'video',total:15},{id:'n5',name:'قواعد النحو – عالم الأدب',type:'video',total:40},{id:'n6',name:'النحو الواضح – الجارم',type:'book',total:380},{id:'n7',name:'التطبيق النحوي – الراجحي',type:'book',total:300},{id:'n8',name:'مفاتيح الإعراب',type:'book',total:200}]},{name:'متقدم',nameEn:'Advanced',items:[{id:'n9',name:'حفظ نظم عبيد ربه',type:'practice',total:40},{id:'n10',name:'أيسر الشروح – الحربي',type:'book',total:400},{id:'n11',name:'التحفة السنية',type:'book',total:350}]}]},
+{id:'b_balagha',name:'البلاغة',nameEn:'Rhetoric',icon:'🎨',sections:[{name:'البلاغة',nameEn:'Rhetoric',items:[{id:'bl1',name:'البلاغة الواضحة',type:'book',total:300},{id:'bl2',name:'جواهر البلاغة',type:'book',total:350},{id:'bl3',name:'البلاغة تطور وتاريخ',type:'book',total:280},{id:'bl4',name:'المنهاج الواضح',type:'book',total:400}]}]},
+{id:'b_dalala',name:'الدلالة ⭐',nameEn:'Semantics ⭐',icon:'🎯',sections:[{name:'الدلالة',nameEn:'Semantics',items:[{id:'dl1',name:'علم الدلالة – مختار عمر',type:'book',total:350},{id:'dl2',name:'الدلالة والتخاطب – يونس',type:'book',total:300},{id:'dl3',name:'التطور اللغوي',type:'book',total:250},{id:'dl4',name:'فهم الفهم',type:'book',total:300}]}]},
+{id:'b_fiqh',name:'فقه اللغة',nameEn:'Philology',icon:'🔬',sections:[{name:'فقه اللغة',nameEn:'Philology',items:[{id:'fq1',name:'فقه اللغة – الحمد',type:'book',total:250},{id:'fq2',name:'فصول في فقه العربية',type:'book',total:300},{id:'fq3',name:'اللهجات – بشر',type:'book',total:300}]}]},
+{id:'b_dict',name:'المعاجم',nameEn:'Lexicography',icon:'📚',sections:[{name:'المعاجم',nameEn:'Lexicography',items:[{id:'dc1',name:'دورة فقه اللغة – فهمي',type:'video',total:8},{id:'dc2',name:'المعجم العربي – نصار',type:'book',total:400},{id:'dc3',name:'المصباح المنير',type:'book',total:500}]}]},
+{id:'b_ling',name:'اللسانيات',nameEn:'Linguistics',icon:'🧠',sections:[{name:'عامة',nameEn:'General',items:[{id:'lg1',name:'مبادئ اللسانيات – قدور',type:'book',total:300},{id:'lg2',name:'علم اللغة – السعران',type:'book',total:300},{id:'lg3',name:'مدخل اللسانيات – يونس',type:'book',total:280}]},{name:'حاسوبية ⭐',nameEn:'Computational ⭐',items:[{id:'lg4',name:'اللغة والحاسوب – نبيل علي',type:'book',total:450,star:true},{id:'lg5',name:'المعالجة الآلية – سلوى حمادة',type:'book',total:300},{id:'lg6',name:'ميكنة اللغة – رأفت الكمار',type:'book',total:350},{id:'lg7',name:'CAMeL Lab',type:'practice',total:20},{id:'lg8',name:'Quran Corpus',type:'practice',total:10}]}]},
+{id:'b_qiraat',name:'القراءات',nameEn:'Readings',icon:'📕',sections:[{name:'القراءات',nameEn:'Readings',items:[{id:'qr1',name:'المدخل – السندي',type:'book',total:200},{id:'qr2',name:'القراءات – قابة',type:'book',total:300},{id:'qr3',name:'الشاطبية',type:'book',total:200},{id:'qr4',name:'الوافي – القاضي',type:'book',total:400},{id:'qr5',name:'ختمة بالسبع',type:'practice',total:30}]}]},
+{id:'b_college',name:'الكلية',nameEn:'College',icon:'🎓',sections:[{name:'الكلية',nameEn:'College',items:[{id:'cl1',name:'مواد سنة 2',type:'practice',total:1},{id:'cl2',name:'مواد سنة 3',type:'practice',total:1},{id:'cl3',name:'مواد سنة 4',type:'practice',total:1}]}]}
 ]},
 {id:'root_nlp',name:'NLP',nameEn:'NLP',icon:'🔧',branches:[
-  {id:'b_python',name:'Python',nameEn:'Python',icon:'💻',sections:[
-    {name:'Python',nameEn:'Python',items:[
-      {id:'py1',name:'Angela Yu – 100 Days of Code',type:'video',total:100},
-      {id:'py2',name:'OOP',type:'video',total:15},
-      {id:'py3',name:'Regex',type:'video',total:10},
-      {id:'py4',name:'NumPy',type:'video',total:15},
-      {id:'py5',name:'Pandas',type:'video',total:20},
-      {id:'py6',name:'Matplotlib',type:'video',total:10},
-      {id:'py7',name:'Git',type:'video',total:10}]}
-  ]},
-  {id:'b_english',name:'إنجليزي',nameEn:'English',icon:'🇬🇧',sections:[
-    {name:'إنجليزي',nameEn:'English',items:[
-      {id:'en1',name:'Scott Mendoza',type:'video',total:50},
-      {id:'en2',name:'IELTS Preparation',type:'video',total:30},
-      {id:'en3',name:'اختبارات تجريبية',type:'practice',total:12}]}
-  ]},
-  {id:'b_math',name:'رياضيات',nameEn:'Mathematics',icon:'📊',sections:[
-    {name:'رياضيات',nameEn:'Mathematics',items:[
-      {id:'mt1',name:'Khan Academy',type:'video',total:20},
-      {id:'mt2',name:'جبر خطي',type:'video',total:15},
-      {id:'mt3',name:'احتمالات',type:'video',total:15},
-      {id:'mt4',name:'إحصاء',type:'video',total:20}]}
-  ]},
-  {id:'b_ml',name:'ML + NLP + DL',nameEn:'ML + NLP + DL',icon:'🤖',sections:[
-    {name:'ML',nameEn:'ML',items:[
-      {id:'ml1',name:'Andrew Ng – Machine Learning',type:'video',total:40},
-      {id:'ml2',name:'scikit-learn Projects',type:'practice',total:15}]},
-    {name:'NLP',nameEn:'NLP',items:[
-      {id:'ml3',name:'NLP Specialization',type:'video',total:30},
-      {id:'ml4',name:'CAMeL Tools',type:'practice',total:10},
-      {id:'ml5',name:'Farasa',type:'practice',total:10}]},
-    {name:'DL',nameEn:'Deep Learning',items:[
-      {id:'ml6',name:'Deep Learning – Andrew Ng',type:'video',total:50},
-      {id:'ml7',name:'HuggingFace',type:'video',total:20},
-      {id:'ml8',name:'AraBERT',type:'practice',total:10},
-      {id:'ml9',name:'مشروع 1: تصنيف نصوص',type:'practice',total:1},
-      {id:'ml10',name:'مشروع 2: تحليل مشاعر',type:'practice',total:1},
-      {id:'ml11',name:'مشروع 3: NER عربي',type:'practice',total:1},
-      {id:'ml12',name:'مشروع 4: تشكيل آلي',type:'practice',total:1},
-      {id:'ml13',name:'مشروع 5: Chatbot عربي',type:'practice',total:1}]}
-  ]},
-  {id:'b_schol',name:'المنحة',nameEn:'Scholarship',icon:'🌍',sections:[
-    {name:'المنحة',nameEn:'Scholarship',items:[
-      {id:'sc1',name:'رفع GPA (8 فصول)',type:'practice',total:8},
-      {id:'sc2',name:'IELTS 7+',type:'practice',total:1},
-      {id:'sc3',name:'بحث منشور',type:'practice',total:1},
-      {id:'sc4',name:'3 خطابات توصية',type:'practice',total:3},
-      {id:'sc5',name:'Chevening',type:'practice',total:1},
-      {id:'sc6',name:'Fulbright',type:'practice',total:1},
-      {id:'sc7',name:'CV + SOP + LinkedIn',type:'practice',total:3}]}
-  ]}
+{id:'b_python',name:'Python',nameEn:'Python',icon :'💻',sections:[{name:'Python',nameEn:'Python',items:[{id:'py1',name:'Angela Yu – 100 Days',type:'video',total:100},{id:'py2',name:'OOP',type:'video',total:15},{id:'py3',name:'Regex',type:'video',total:10},{id:'py4',name:'NumPy',type:'video',total:15},{id:'py5',name:'Pandas',type:'video',total:20},{id:'py6',name:'Matplotlib',type:'video',total:10},{id:'py7',name:'Git',type:'video',total:10}]}]},
+{id:'b_english',name:'إنجليزي',nameEn:'English',icon:'🇬🇧',sections:[{name:'إنجليزي',nameEn:'English',items:[{id:'en1',name:'Scott Mendoza',type:'video',total:50},{id:'en2',name:'IELTS Prep',type:'video',total:30},{id:'en3',name:'اختبارات تجريبية',type:'practice',total:12}]}]},
+{id:'b_math',name:'رياضيات',nameEn:'Math',icon:'📊',sections:[{name:'رياضيات',nameEn:'Math',items:[{id:'mt1',name:'Khan Academy',type:'video',total:20},{id:'mt2',name:'جبر خطي',type:'video',total:15},{id:'mt3',name:'احتمالات',type:'video',total:15},{id:'mt4',name:'إحصاء',type:'video',total:20}]}]},
+{id:'b_ml',name:'ML + NLP + DL',nameEn:'ML + NLP + DL',icon:'🤖',sections:[{name:'ML',nameEn:'ML',items:[{id:'ml1',name:'Andrew Ng ML',type:'video',total:40},{id:'ml2',name:'scikit-learn',type:'practice',total:15}]},{name:'NLP',nameEn:'NLP',items:[{id:'ml3',name:'NLP Specialization',type:'video',total:30},{id:'ml4',name:'CAMeL Tools',type:'practice',total:10},{id:'ml5',name:'Farasa',type:'practice',total:10}]},{name:'DL',nameEn:'DL',items:[{id:'ml6',name:'Deep Learning – Ng',type:'video',total:50},{id:'ml7',name:'HuggingFace',type:'video',total:20},{id:'ml8',name:'AraBERT',type:'practice',total:10},{id:'ml9',name:'مشروع: تصنيف نصوص',type:'practice',total:1},{id:'ml10',name:'مشروع: تحليل مشاعر',type:'practice',total:1},{id:'ml11',name:'مشروع: NER عربي',type:'practice',total:1},{id:'ml12',name:'مشروع: تشكيل آلي',type:'practice',total:1},{id:'ml13',name:'مشروع: Chatbot عربي',type:'practice',total:1}]}]},
+{id:'b_schol',name:'المنحة',nameEn:'Scholarship',icon:'🌍',sections:[{name:'المنحة',nameEn:'Scholarship',items:[{id:'sc1',name:'رفع GPA',type:'practice',total:8},{id:'sc2',name:'IELTS 7+',type:'practice',total:1},{id:'sc3',name:'بحث منشور',type:'practice',total:1},{id:'sc4',name:'خطابات توصية',type:'practice',total:3},{id:'sc5',name:'Chevening',type:'practice',total:1},{id:'sc6',name:'Fulbright',type:'practice',total:1},{id:'sc7',name:'CV + SOP + LinkedIn',type:'practice',total:3}]}]}
 ]},
 {id:'root_reading',name:'القراءة',nameEn:'Reading',icon:'📚',branches:[
-  {id:'b_thinking',name:'كتب بناء التفكير',nameEn:'Thinking Books',icon:'🧠',sections:[
-    {name:'المرحلة الأولى: الأساسيات',nameEn:'Phase 1: Basics',items:[
-      {id:'th1',name:'1. فصول في التفكير الموضوعي',type:'book',total:280},
-      {id:'th2',name:'2. التفكير المستقيم والأعوج',type:'book',total:300},
-      {id:'th3',name:'3. المغالطات المنطقية',type:'book',total:250},
-      {id:'th4',name:'4. Smart Thinking – Allen Matthew',type:'book',total:320}]},
-    {name:'المرحلة الثانية: التوسع',nameEn:'Phase 2: Expansion',items:[
-      {id:'th5',name:'5. خطوة نحو التفكير القويم',type:'book',total:300},
-      {id:'th6',name:'6. فن التفكير الواضح',type:'book',total:280},
-      {id:'th7',name:'7. التفكير النقدي – عمرو يس',type:'book',total:350},
-      {id:'th8',name:'8. الدفاع عن الأفكار – محمد بن سعد الدكان',type:'book',total:400},
-      {id:'th9',name:'9. التفكير السريع والبطيء – دانيال كانمان',type:'book',total:500}]}
-  ]},
-  {id:'b_chess',name:'شطرنج',nameEn:'Chess',icon:'♟️',sections:[
-    {name:'شطرنج',nameEn:'Chess',items:[
-      {id:'ch1',name:'تعلم القواعد',type:'practice',total:10},
-      {id:'ch2',name:'افتتاحيات',type:'practice',total:20},
-      {id:'ch3',name:'نهايات',type:'practice',total:20},
-      {id:'ch4',name:'تمارين يومية',type:'practice',total:365},
-      {id:'ch5',name:'مباريات',type:'practice',total:365}]}
-  ]}
+{id:'b_thinking',name:'كتب بناء التفكير',nameEn:'Thinking Books',icon:'🧠',sections:[{name:'المرحلة الأولى: الأساسيات',nameEn:'Phase 1: Basics',items:[{id:'th1',name:'1. فصول في التفكير الموضوعي',type:'book',total:280},{id:'th2',name:'2. التفكير المستقيم والأعوج',type:'book',total:300},{id:'th3',name:'3. المغالطات المنطقية',type:'book',total:250},{id:'th4',name:'4. Smart Thinking – Allen Matthew',type:'book',total:320}]},{name:'المرحلة الثانية: التوسع',nameEn:'Phase 2: Expansion',items:[{id:'th5',name:'5. خطوة نحو التفكير القويم',type:'book',total:300},{id:'th6',name:'6. فن التفكير الواضح',type:'book',total:280},{id:'th7',name:'7. التفكير النقدي – عمرو يس',type:'book',total:350},{id:'th8',name:'8. الدفاع عن الأفكار – الدكان',type:'book',total:400},{id:'th9',name:'9. التفكير السريع والبطيء – كانمان',type:'book',total:500}]}]},
+{id:'b_chess',name:'شطرنج',nameEn:'Chess',icon:'♟️',sections:[{name:'شطرنج',nameEn:'Chess',items:[{id:'ch1',name:'تعلم القواعد',type:'practice',total:10},{id:'ch2',name:'افتتاحيات',type:'practice',total:20},{id:'ch3',name:'نهايات',type:'practice',total:20},{id:'ch4',name:'تمارين يومية',type:'practice',total:365},{id:'ch5',name:'مباريات',type:'practice',total:365}]}]}
 ]}
 ]};
 
 // ======================== UTILS ========================
 function dU(ds){return Math.ceil((new Date(ds)-new Date())/(864e5))}
+function dFrom(ds){return Math.ceil((new Date()-new Date(ds))/(864e5))}
 function fD(ds){var d=new Date(ds),m=S.lang==='ar'?['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return m[d.getMonth()]+' '+d.getFullYear()}
 function gr(){var h=new Date().getHours();return h<12?t('gm'):h<18?t('ga'):t('ge')}
 function toast(m){var e=document.getElementById('toast');e.textContent=m;e.classList.add('sh');setTimeout(function(){e.classList.remove('sh')},2200)}
 function gC(rid){return{root_arabic:'#4CAF50',root_nlp:'#7C4DFF',root_reading:'#FF8C00'}[rid]||'#FF8C00'}
 function gBg(rid){return{root_arabic:'var(--gbg)',root_nlp:'var(--pbg)',root_reading:'var(--obg)'}[rid]||'var(--obg)'}
+function getItemData(iid){if(S.editedItems[iid])return S.editedItems[iid];var f=null;DATA.roots.forEach(function(r){r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){if(it.id===iid)f=it})})})});return f}
+function getRootId(bid){for(var i=0;i<DATA.roots.length;i++){if(DATA.roots[i].branches.find(function(b){return b.id===bid}))return DATA.roots[i].id}return''}
 
-function getItemData(iid){
-  if(S.editedItems[iid])return S.editedItems[iid];
-  var found=null;
-  DATA.roots.forEach(function(r){r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){if(it.id===iid)found=it})})})});
-  return found;
-}
+function allItems(){var a=[];DATA.roots.forEach(function(r){r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){if(!S.hiddenItems||!S.hiddenItems[it.id])a.push({i:getItemData(it.id)||it,bid:b.id,rid:r.id})})})})});return a}
+function bProg(bid){var tot=0,dn=0;DATA.roots.forEach(function(r){r.branches.forEach(function(b){if(b.id===bid)b.sections.forEach(function(s){s.items.forEach(function(it){if(!S.hiddenItems||!S.hiddenItems[it.id]){tot++;if(S.ck[it.id])dn++}})})})});return{d:dn,t:tot,p:tot?Math.round(dn/tot*100):0}}
+function rProg(rid){var tot=0,dn=0;var r=DATA.roots.find(function(x){return x.id===rid});if(!r)return{d:0,t:0,p:0};r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){if(!S.hiddenItems||!S.hiddenItems[it.id]){tot++;if(S.ck[it.id])dn++}})})});return{d:dn,t:tot,p:tot?Math.round(dn/tot*100):0}}
+function updStreak(){var td=new Date().toDateString();if(S.streak.ld===td)return;var yd=new Date(Date.now()-864e5).toDateString();if(S.streak.ld===yd)S.streak.c++;else if(S.streak.ld!==td)S.streak.c=1;S.streak.ld=td;sv()}
 
-function allItems(){var a=[];DATA.roots.forEach(function(r){r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){a.push({i:getItemData(it.id)||it,bid:b.id,rid:r.id})})})})});return a}
-function totProg(){var a=allItems();if(!a.length)return 0;var d=a.filter(function(x){return S.ck[x.i.id]}).length;return Math.round(d/a.length*100)}
-function bProg(bid){var tot=0,dn=0;DATA.roots.forEach(function(r){r.branches.forEach(function(b){if(b.id===bid)b.sections.forEach(function(s){s.items.forEach(function(it){tot++;if(S.ck[it.id])dn++})})})});return{d:dn,t:tot,p:tot?Math.round(dn/tot*100):0}}
-function rProg(rid){var tot=0,dn=0;var r=DATA.roots.find(function(x){return x.id===rid});if(!r)return{d:0,t:0,p:0};r.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){tot++;if(S.ck[it.id])dn++})})});return{d:dn,t:tot,p:tot?Math.round(dn/tot*100):0}}
-
-function updStreak(){var td=new Date().toDateString();if(S.streak.ld===td)return;var yd=new Date(Date.now()-864e5).toDateString();if(S.streak.ld===yd){S.streak.c++}else if(S.streak.ld!==td){S.streak.c=1}S.streak.ld=td;sv()}
-
-function estDate(it){
+// ======================== TIME BUDGET ========================
+function itemHours(it,rid){
   var item=getItemData(it.id)||it;
-  if(!item.total)return null;var p=S.ip[it.id]||0;var rem=item.total-p;if(rem<=0)return null;
-  var days=0;if(item.type==='book')days=Math.ceil(rem/20);else if(item.type==='video')days=Math.ceil(rem/2);else days=Math.ceil(rem);
-  var d=new Date();d.setDate(d.getDate()+days);return d.toLocaleDateString(S.lang==='ar'?'ar-EG':'en-US',{year:'numeric',month:'short',day:'numeric'});
+  var rate=RATES[rid]||RATES.root_arabic;
+  if(!item.total)return 1;
+  return Math.round(item.total*(rate[item.type]||4)/60*10)/10;
 }
+function itemRemainHours(it,rid){
+  if(S.ck[it.id])return 0;
+  var item=getItemData(it.id)||it;
+  var rate=RATES[rid]||RATES.root_arabic;
+  if(!item.total)return 0;
+  var prog=S.ip[it.id]||0;
+  var rem=Math.max(0,item.total-prog);
+  return Math.round(rem*(rate[item.type]||4)/60*10)/10;
+}
+function totalNeeded(){var h=0;allItems().forEach(function(x){h+=itemRemainHours(x.i,x.rid)});return Math.round(h)}
+function totalAll(){var h=0;allItems().forEach(function(x){h+=itemHours(x.i,x.rid)});return Math.round(h)}
+function doneHours(){var h=0;allItems().forEach(function(x){if(S.ck[x.i.id])h+=itemHours(x.i,x.rid)});return Math.round(h)}
+function availHours(){return Math.max(0,dU(DATA.countdowns[0].date))*S.dailyHours}
+function branchHrs(bid){var t=0,r=0,rid=getRootId(bid);DATA.roots.forEach(function(rt){rt.branches.forEach(function(b){if(b.id===bid)b.sections.forEach(function(s){s.items.forEach(function(it){if(!S.hiddenItems||!S.hiddenItems[it.id]){t+=itemHours(it,rid);r+=itemRemainHours(it,rid)}})})})});return{t:Math.round(t),r:Math.round(r)}}
+function rootHrs(rid){var t=0,r=0;var rt=DATA.roots.find(function(x){return x.id===rid});if(!rt)return{t:0,r:0};rt.branches.forEach(function(b){b.sections.forEach(function(s){s.items.forEach(function(it){if(!S.hiddenItems||!S.hiddenItems[it.id]){t+=itemHours(it,rid);r+=itemRemainHours(it,rid)}})})});return{t:Math.round(t),r:Math.round(r)}}
 
+function estDate(it,rid){
+  var item=getItemData(it.id)||it;if(!item.total)return null;
+  var hrs=itemRemainHours(it,rid);if(hrs<=0)return null;
+  var days=Math.ceil(hrs/S.dailyHours);
+  var d=new Date();d.setDate(d.getDate()+days);
+  return d.toLocaleDateString(S.lang==='ar'?'ar-EG':'en-US',{year:'numeric',month:'short',day:'numeric'});
+}
 function estBranch(bid){
-  var maxDays=0;
-  DATA.roots.forEach(function(r){r.branches.forEach(function(b){if(b.id===bid)b.sections.forEach(function(s){s.items.forEach(function(it){
-    if(S.ck[it.id])return;
-    var item=getItemData(it.id)||it;
-    var p=S.ip[it.id]||0;var rem=(item.total||1)-p;if(rem<=0)return;
-    var days=0;if(item.type==='book')days=Math.ceil(rem/20);else if(item.type==='video')days=Math.ceil(rem/2);else days=Math.ceil(rem);
-    if(days>maxDays)maxDays=days;
-  })})})});
-  if(maxDays<=0)return null;
-  var d=new Date();d.setDate(d.getDate()+maxDays);
+  var hrs=branchHrs(bid).r;if(hrs<=0)return null;
+  var days=Math.ceil(hrs/S.dailyHours);
+  var d=new Date();d.setDate(d.getDate()+days);
   return d.toLocaleDateString(S.lang==='ar'?'ar-EG':'en-US',{year:'numeric',month:'short',day:'numeric'});
 }
 
-// Countdown display mode: days/weeks/months
-function cdDisplay(id,days){
-  var mode=S.cdMode[id]||'d';
-  if(mode==='w')return{v:Math.ceil(days/7),u:t('weeksUnit')};
-  if(mode==='m')return{v:Math.ceil(days/30),u:t('monthsUnit')};
-  return{v:days,u:t('daysUnit')};
-}
-function toggleCdMode(id){
-  var m=S.cdMode[id]||'d';
-  S.cdMode[id]=m==='d'?'w':m==='w'?'m':'d';
-  sv();rHome();
-}
+function cdDisplay(id,days){var m=S.cdMode[id]||'d';if(m==='w')return{v:Math.ceil(days/7),u:t('weeksUnit')};if(m==='m')return{v:Math.ceil(days/30),u:t('monthsUnit')};return{v:days,u:t('daysUnit')}}
+function toggleCdMode(id){var m=S.cdMode[id]||'d';S.cdMode[id]=m==='d'?'w':m==='w'?'m':'d';sv();rHome()}
 
 // ======================== ONBOARDING ========================
-function nextOB(n){
-  document.querySelectorAll('.ob-slide').forEach(function(s){s.classList.remove('act')});
-  document.getElementById('ob'+n).classList.add('act');
-}
-function skipOB(){
-  S.onboarded=true;sv();
-  document.getElementById('onboard').classList.add('hide');
-}
+function nextOB(n){document.querySelectorAll('.ob-slide').forEach(function(s){s.classList.remove('act')});document.getElementById('ob'+n).classList.add('act')}
+function skipOB(){S.onboarded=true;sv();document.getElementById('onboard').classList.add('hide')}
 
-// ======================== NAVIGATION ========================
+// ======================== NAV ========================
 function nav(pg,flt){
   document.querySelectorAll('.page').forEach(function(p){p.classList.remove('act')});
   document.getElementById('pg-'+pg).classList.add('act');
   document.querySelectorAll('.ni').forEach(function(n){n.classList.toggle('act',n.dataset.p===pg)});
   S.pp=S.cp;S.cp=pg;
-  if(pg==='home')rHome();
-  else if(pg==='paths'){if(flt)S.pf=flt;rPaths()}
-  else if(pg==='timeline')rTimeline();
-  else if(pg==='stats')rStats();
-  else if(pg==='settings')rSettings();
+  if(pg==='home')rHome();else if(pg==='paths'){if(flt)S.pf=flt;rPaths()}
+  else if(pg==='timeline')rTimeline();else if(pg==='stats')rStats();else if(pg==='settings')rSettings();
   sv();
 }
 document.querySelectorAll('.ni').forEach(function(b){b.addEventListener('click',function(){nav(b.dataset.p)})});
 function goBack(){nav(S.pp||'paths')}
-
-function openDet(bid){
-  S.detBr=bid;S.pp='paths';
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('act')});
-  document.getElementById('pg-detail').classList.add('act');
-  S.cp='detail';rDetail(bid);
-}
-
-// ======================== MODAL ========================
+function openDet(bid){S.detBr=bid;S.pp='paths';document.querySelectorAll('.page').forEach(function(p){p.classList.remove('act')});document.getElementById('pg-detail').classList.add('act');S.cp='detail';rDetail(bid)}
 function showMdl(){document.getElementById('mbd').classList.add('sh');document.getElementById('mdl').classList.add('sh')}
 function closeMdl(){document.getElementById('mbd').classList.remove('sh');document.getElementById('mdl').classList.remove('sh')}
 
@@ -781,49 +333,77 @@ function rHome(){
   document.getElementById('greet').textContent=gr()+' 👋';
   document.getElementById('motiv').textContent=getMotiv();
   document.getElementById('hdr-char').textContent=getHdrChar();
-
-  var gd=Math.max(0,dU(DATA.countdowns[0].date));
-  var gdd=cdDisplay('grad_home',gd);
-  document.getElementById('gcd').innerHTML='🎓 '+(S.lang==='ar'?t('rem')+' <b>'+gdd.v+'</b> '+gdd.u+' '+t('grad'):'<b>'+gdd.v+'</b> '+gdd.u+' '+t('grad'));
-  document.getElementById('gcd').onclick=function(){toggleCdMode('grad_home')};
-
   document.getElementById('h-pt-t').textContent=t('mp');
   document.getElementById('h-cd-t').textContent=t('cds');
   document.getElementById('h-up-t').textContent=t('upc');
 
-  // Paths
+  // GRADUATION PROGRESS BAR
+  var gradDate=DATA.countdowns[0].date;
+  var startDate=DATA.journeyStart;
+  var totalDays=Math.ceil((new Date(gradDate)-new Date(startDate))/(864e5));
+  var elapsed=dFrom(startDate);
+  var remaining=Math.max(0,dU(gradDate));
+  var gradPct=Math.min(100,Math.round(elapsed/totalDays*100));
+  var gh='<div class="hdr-box"><div class="hdr-box-title"><span>🎓 '+(S.lang==='ar'?'التخرج':'Graduation')+'</span><span>'+gradPct+'%</span></div>';
+  gh+='<div class="hdr-bar"><div class="hdr-bar-fill" style="width:'+gradPct+'%;background:#fff"></div></div>';
+  gh+='<div class="hdr-bar-info"><span>'+t('elapsed')+': '+elapsed+' '+t('daysUnit')+'</span><span>'+t('remaining')+': '+remaining+' '+t('daysUnit')+'</span></div></div>';
+  document.getElementById('hdr-grad').innerHTML=gh;
+
+  // TIME BUDGET
+  var needed=totalNeeded(),avail=availHours(),done=doneHours();
+  var budPct=avail>0?Math.min(100,Math.round(needed/avail*100)):100;
+  var budCol=budPct<=70?'#4CAF50':budPct<=90?'#FFB347':'#FF5252';
+  var reserve=Math.max(0,avail-needed);
+  var bh='<div class="hdr-box hdr-budget"><div class="hdr-box-title"><span>⏰ '+t('budget')+'</span><span onclick="openDailyHours()" style="cursor:pointer">'+S.dailyHours+' '+t('hDay')+' ✏️</span></div>';
+  bh+='<div class="hdr-bar"><div class="hdr-bar-fill" style="width:'+budPct+'%;background:'+budCol+'"></div></div>';
+  bh+='<div class="hdr-bar-info"><span>'+t('needed')+': <b>'+needed+'</b> '+t('hour')+'</span><span>'+t('available')+': <b>'+avail+'</b> '+t('hour')+'</span></div>';
+  bh+='<div class="hdr-bar-info" style="margin-top:3px"><span>✅ '+t('done2')+': <b>'+done+'</b></span><span style="color:'+budCol+'">💎 '+t('reserve')+': <b>'+reserve+'</b></span></div></div>';
+  document.getElementById('hdr-budget').innerHTML=bh;
+
+  // PATHS
   var ph='';
   DATA.roots.forEach(function(r){
     var p=rProg(r.id),cl=gC(r.id),bg=gBg(r.id),nm=S.lang==='ar'?r.name:r.nameEn;
-    ph+='<div class="c pc" style="background:'+bg+';border-color:'+cl+'" onclick="nav(\'paths\',\''+r.id+'\')">';
+    var rh=rootHrs(r.id);
+    ph+='<div class="c pc" style="background:'+bg+'" onclick="nav(\'paths\',\''+r.id+'\')">';
     ph+='<div class="pi" style="background:'+cl+';color:#fff">'+r.icon+'</div>';
     ph+='<div class="pn">'+nm+'</div>';
     ph+='<div class="pf2">'+p.d+'/'+p.t+' '+t('items')+'</div>';
     ph+='<div class="pb"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div>';
+    if(rh.r>0)ph+='<div class="ph">⏱️ '+rh.r+' '+t('hRemain')+'</div>';
     ph+='</div>';
   });
   document.getElementById('h-paths').innerHTML=ph;
 
-  // Countdowns - sorted by nearest
-  var cds=DATA.countdowns.slice().map(function(c){return{o:c,d:Math.max(0,dU(c.date))}}).sort(function(a,b){return a.d-b.d});
-  var cdCols=['linear-gradient(135deg,#FF6B9D,#FF8A80)','linear-gradient(135deg,#7C4DFF,#B388FF)','linear-gradient(135deg,#4CAF50,#81C784)','linear-gradient(135deg,#2196F3,#64B5F6)','linear-gradient(135deg,#FF8C00,#FFB347)'];
-  var cdH='';
-  cds.forEach(function(c,i){
-    var dd=cdDisplay(c.o.id,c.d);
-    var lb=S.lang==='ar'?c.o.name:c.o.nameEn;
-    cdH+='<div class="cdc" style="background:'+cdCols[i%5]+'" onclick="toggleCdMode(\''+c.o.id+'\');event.stopPropagation()">';
-    cdH+='<div class="cdc-blob"></div>';
-    cdH+='<div class="ci">'+c.o.icon+'</div><div class="cv">'+dd.v+'</div><div class="cl">'+dd.u+' · '+lb+'</div></div>';
+  // COUNTDOWNS sorted by nearest
+  var now=new Date();
+  DATA.countdowns.forEach(function(cd){
+    if(cd.id==='exams1'){var d=new Date(now.getFullYear(),0,15);if(d<now)d=new Date(now.getFullYear()+1,0,15);cd.date=d.toISOString().split('T')[0]}
+    if(cd.id==='exams2'){var d2=new Date(now.getFullYear(),4,15);if(d2<now)d2=new Date(now.getFullYear()+1,4,15);cd.date=d2.toISOString().split('T')[0]}
   });
+  var cds=DATA.countdowns.map(function(c){return{o:c,d:Math.max(0,dU(c.date))}}).sort(function(a,b){return a.d-b.d});
+  var cols=['linear-gradient(135deg,#FF6B9D,#FF8A80)','linear-gradient(135deg,#7C4DFF,#B388FF)','linear-gradient(135deg,#4CAF50,#81C784)','linear-gradient(135deg,#2196F3,#64B5F6)','linear-gradient(135deg,#FF8C00,#FFB347)'];
+  var cdH='';
+  cds.forEach(function(c,i){var dd=cdDisplay(c.o.id,c.d);var lb=S.lang==='ar'?c.o.name:c.o.nameEn;
+    cdH+='<div class="cdc" style="background:'+cols[i%5]+'" onclick="toggleCdMode(\''+c.o.id+'\')"><div class="cdc-blob"></div><div class="ci">'+c.o.icon+'</div><div class="cv">'+dd.v+'</div><div class="cl">'+dd.u+' · '+lb+'</div></div>'});
   document.getElementById('h-cds').innerHTML=cdH;
 
-  // Upcoming
-  var now=new Date(),upE=DATA.timeline.filter(function(x){return new Date(x.date)>now}).slice(0,3);
+  // UPCOMING
+  var upE=DATA.timeline.filter(function(x){return new Date(x.date)>now}).slice(0,3);
   var upH='';
-  if(upE.length){upE.forEach(function(e){var lb=S.lang==='ar'?e.title:e.titleEn;var days=dU(e.date);upH+='<div class="ui"><div class="ud" style="background:var(--pri)"></div><div style="flex:1"><div class="ut">'+lb+'</div><div class="udt">'+fD(e.date)+' · '+days+' '+t('daysUnit')+'</div></div></div>'})}
-  else{upH='<div class="emp"><div class="ei">🎊</div><div class="et">'+t('noUp')+'</div></div>'}
+  if(upE.length){upE.forEach(function(e){var lb=S.lang==='ar'?e.title:e.titleEn;upH+='<div class="ui"><div class="ud" style="background:var(--pri)"></div><div style="flex:1"><div class="ut">'+lb+'</div><div class="udt">'+fD(e.date)+' · '+dU(e.date)+' '+t('daysUnit')+'</div></div></div>'})}
+  else upH='<div class="emp"><div class="ei">🎊</div><div class="et">'+t('noUp')+'</div></div>';
   document.getElementById('h-up').innerHTML=upH;
 }
+
+function openDailyHours(){
+  document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>⏰ '+(S.lang==='ar'?'ساعات الدراسة اليومية':'Daily Study Hours')+'</h3><div class="nir"><input type="number" id="dh-inp" value="'+S.dailyHours+'" min="1" max="12" step="0.5"><span>'+(S.lang==='ar'?'ساعة / يوم':'h / day')+'</span></div><div id="dh-prev" style="text-align:center;font-size:12px;color:var(--text2);margin-bottom:14px"></div><button class="mb pr" onclick="svDH()">'+t('save')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
+  var inp=document.getElementById('dh-inp');
+  function upd(){var h=parseFloat(inp.value)||3;var av=Math.max(0,dU(DATA.countdowns[0].date))*h;var nd=totalNeeded();var ok=av>=nd;
+    document.getElementById('dh-prev').innerHTML=t('available')+': <b>'+Math.round(av)+'</b> '+t('hour')+'<br>'+t('needed')+': <b>'+nd+'</b> '+t('hour')+'<br>'+(ok?'💚 '+(S.lang==='ar'?'كافي':'Enough'):'🔴 '+(S.lang==='ar'?'غير كافي':'Not enough'))}
+  inp.addEventListener('input',upd);upd();showMdl();
+}
+function svDH(){S.dailyHours=parseFloat(document.getElementById('dh-inp').value)||3;sv();closeMdl();rHome();toast('✅')}
 
 // ======================== RENDER PATHS ========================
 function rPaths(){
@@ -831,19 +411,14 @@ function rPaths(){
   var th='<button class="t '+(S.pf==='all'?'act':'')+'" onclick="sPF(\'all\')">'+t('all')+'</button>';
   DATA.roots.forEach(function(r){var nm=S.lang==='ar'?r.name:r.nameEn;th+='<button class="t '+(S.pf===r.id?'act':'')+'" onclick="sPF(\''+r.id+'\')">'+r.icon+' '+nm+'</button>'});
   document.getElementById('p-tabs').innerHTML=th;
-
   var h='',roots=S.pf==='all'?DATA.roots:DATA.roots.filter(function(r){return r.id===S.pf});
   roots.forEach(function(r){
     var rn=S.lang==='ar'?r.name:r.nameEn,cl=gC(r.id);
     h+='<div class="st" style="color:'+cl+'">'+r.icon+' '+rn+'</div>';
     r.branches.forEach(function(b){
       var p=bProg(b.id),nm=S.lang==='ar'?b.name:b.nameEn,bg=gBg(r.id);
-      var eb=estBranch(b.id);
-      h+='<div class="bc" onclick="openDet(\''+b.id+'\')">';
-      h+='<div class="bic" style="background:'+bg+';color:'+cl+'">'+b.icon+'</div>';
-      h+='<div class="bi"><div class="bn">'+nm+'</div>';
-      h+='<div class="bm">'+p.d+'/'+p.t+' '+t('items')+'</div>';
-      h+='<div class="pb"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div>';
+      var bh=branchHrs(b.id),eb=estBranch(b.id);
+      h+='<div class="bc" onclick="openDet(\''+b.id+'\')"><div class="bic" style="background:'+bg+';color:'+cl+'">'+b.icon+'</div><div class="bi"><div class="bn">'+nm+'</div><div class="bm">'+p.d+'/'+p.t+' '+t('items')+(bh.r>0?' · ⏱️'+bh.r+t('hour'):'')+'</div><div class="pb"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div>';
       if(eb&&p.p<100)h+='<div class="best">'+t('estBranch')+': '+eb+'</div>';
       h+='</div><div style="font-size:13px;font-weight:700;color:'+cl+'">'+p.p+'%</div></div>';
     });
@@ -858,9 +433,9 @@ function rDetail(bid){
   DATA.roots.forEach(function(r){var b=r.branches.find(function(x){return x.id===bid});if(b){branch=b;rid=r.id}});
   if(!branch)return;
   var cl=gC(rid),nm=S.lang==='ar'?branch.name:branch.nameEn,p=bProg(bid);
-  var eb=estBranch(bid);
+  var bh=branchHrs(bid),eb=estBranch(bid);
   document.getElementById('d-title').textContent=branch.icon+' '+nm;
-  document.getElementById('d-sub').textContent=p.d+'/'+p.t+' '+t('items');
+  document.getElementById('d-sub').textContent=p.d+'/'+p.t+' '+t('items')+(bh.r>0?' · ⏱️'+bh.r+t('hour'):'');
   document.getElementById('bkb').textContent=S.lang==='ar'?'→':'←';
   var progH='<div style="display:flex;justify-content:space-between;margin-bottom:5px"><span style="font-size:12px;font-weight:600">'+t('prog')+'</span><span style="font-size:12px;font-weight:700;color:'+cl+'">'+p.p+'%</span></div><div class="pb" style="height:9px"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div>';
   if(eb&&p.p<100)progH+='<div style="font-size:11px;color:var(--teal);margin-top:6px">'+t('estBranch')+': '+eb+'</div>';
@@ -871,17 +446,20 @@ function rDetail(bid){
     var sn=S.lang==='ar'?sec.name:sec.nameEn;
     sh+='<div class="dsec"><div class="dsh" style="color:'+cl+'">'+sn+'</div>';
     sec.items.forEach(function(it){
+      if(S.hiddenItems&&S.hiddenItems[it.id])return;
       var item=getItemData(it.id)||it;
       var ck=S.ck[it.id],pg=S.ip[it.id]||0;
       var tl=item.type==='book'?'📖 '+t('book'):item.type==='video'?'🎬 '+t('video'):'🏋️ '+t('practice');
       var hp=item.type==='book'||item.type==='video',tv=item.total||0;
       var un=item.type==='book'?t('pages'):item.type==='video'?t('sections'):t('units');
-      var es=hp?estDate(item):null;
+      var ih=itemHours(it,rid),irh=itemRemainHours(it,rid);
+      var es=hp?estDate(it,rid):null;
       var subs=S.subtasks[it.id]||[];
 
       sh+='<div class="chi"><div class="cc'+(ck?' chk':'')+'" onclick="tgCk(\''+it.id+'\',\''+bid+'\')">'+(ck?'✓':'')+'</div><div class="ccnt">';
       sh+='<div class="cnm'+(ck?' dn':'')+'">'+item.name+(item.star?' ⭐':'')+'</div>';
       sh+='<span class="ctp">'+tl+(tv?' · '+tv+' '+un:'')+'</span>';
+      sh+='<span class="ctp" style="background:var(--bbg);color:var(--blu)">⏱️ ~'+ih+t('hour')+'</span>';
 
       if(hp&&tv){
         var pp=Math.min(100,Math.round(pg/tv*100));
@@ -889,12 +467,9 @@ function rDetail(bid){
         if(es&&!ck)sh+='<div class="ed">'+t('estF')+': '+es+'</div>';
       }
 
-      // Subtasks
       if(subs.length){
         sh+='<div class="subtasks">';
-        subs.forEach(function(sub,si){
-          sh+='<div class="sub-item"><div class="sub-cc'+(sub.dn?' chk':'')+'" onclick="tgSub(\''+it.id+'\','+si+',\''+bid+'\')">'+(sub.dn?'✓':'')+'</div><div class="sub-nm'+(sub.dn?' dn':'')+'">'+sub.nm+'</div><button class="sub-del" onclick="delSub2(\''+it.id+'\','+si+',\''+bid+'\')">✕</button></div>';
-        });
+        subs.forEach(function(sub,si){sh+='<div class="sub-item"><div class="sub-cc'+(sub.dn?' chk':'')+'" onclick="tgSub(\''+it.id+'\','+si+',\''+bid+'\')">'+(sub.dn?'✓':'')+'</div><div class="sub-nm'+(sub.dn?' dn':'')+'">'+sub.nm+'</div><button class="sub-del" onclick="delSub2(\''+it.id+'\','+si+',\''+bid+'\')">✕</button></div>'});
         sh+='</div>';
       }
 
@@ -914,123 +489,52 @@ function tgCk(iid,bid){S.ck[iid]=!S.ck[iid];if(S.ck[iid])updStreak();sv();rDetai
 function openProg(iid,tot,un,bid){
   var cur=S.ip[iid]||0;
   document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>📊 '+t('updProg')+'</h3><div class="nir"><input type="number" id="pinp" value="'+cur+'" min="0" max="'+tot+'"><span>/ '+tot+' '+un+'</span></div><div class="pb" style="height:9px;margin-bottom:14px"><div class="pfl" style="width:'+Math.round(cur/tot*100)+'%;background:var(--grn)" id="pprev"></div></div><button class="mb pr" onclick="svProg(\''+iid+'\','+tot+',\''+bid+'\')">'+t('save')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
-  document.getElementById('pinp').addEventListener('input',function(){
-    var v=Math.min(tot,Math.max(0,parseInt(this.value)||0));
-    document.getElementById('pprev').style.width=Math.round(v/tot*100)+'%';
-  });
+  document.getElementById('pinp').addEventListener('input',function(){var v=Math.min(tot,Math.max(0,parseInt(this.value)||0));document.getElementById('pprev').style.width=Math.round(v/tot*100)+'%'});
   showMdl();
 }
-function svProg(iid,tot,bid){
-  var v=Math.min(tot,Math.max(0,parseInt(document.getElementById('pinp').value)||0));
-  S.ip[iid]=v;if(v>=tot)S.ck[iid]=true;sv();closeMdl();rDetail(bid);toast(t('progSaved'));
-}
+function svProg(iid,tot,bid){var v=Math.min(tot,Math.max(0,parseInt(document.getElementById('pinp').value)||0));S.ip[iid]=v;if(v>=tot)S.ck[iid]=true;sv();closeMdl();rDetail(bid);toast(t('progSaved'))}
 
 function openEdit(iid,bid){
-  var item=getItemData(iid);
-  if(!item)return;
+  var item=getItemData(iid);if(!item)return;
   var types='<option value="book"'+(item.type==='book'?' selected':'')+'>'+t('book')+'</option><option value="video"'+(item.type==='video'?' selected':'')+'>'+t('video')+'</option><option value="practice"'+(item.type==='practice'?' selected':'')+'>'+t('practice')+'</option>';
-  document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>'+t('editItem')+'</h3><input class="mi" id="ename" value="'+item.name+'" placeholder="'+t('itemName')+'"><div class="m-row"><select id="etype">'+types+'</select><input class="mi" type="number" id="etotal" value="'+(item.total||0)+'" placeholder="'+t('itemTotal')+'" style="margin:0"></div><button class="mb pr" onclick="svEdit(\''+iid+'\',\''+bid+'\')">'+t('save')+'</button><button class="mb dg" onclick="delItem(\''+iid+'\',\''+bid+'\')">'+t('del')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
+  document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>'+t('editItem')+'</h3><input class="mi" id="ename" value="'+item.name+'"><div class="m-row"><select id="etype">'+types+'</select><input class="mi" type="number" id="etotal" value="'+(item.total||0)+'" style="margin:0"></div><button class="mb pr" onclick="svEdit(\''+iid+'\',\''+bid+'\')">'+t('save')+'</button><button class="mb dg" onclick="delItem(\''+iid+'\',\''+bid+'\')">'+t('del')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
   showMdl();
 }
-function svEdit(iid,bid){
-  var nm=document.getElementById('ename').value.trim();
-  var tp=document.getElementById('etype').value;
-  var tot=parseInt(document.getElementById('etotal').value)||0;
-  if(!nm)return;
-  S.editedItems[iid]={id:iid,name:nm,type:tp,total:tot,star:(getItemData(iid)||{}).star};
-  sv();closeMdl();rDetail(bid);toast('✅');
-}
-function delItem(iid,bid){
-  S.ck[iid]=false;delete S.ip[iid];delete S.subtasks[iid];delete S.editedItems[iid];
-  // mark as hidden
-  if(!S.hiddenItems)S.hiddenItems={};
-  S.hiddenItems[iid]=true;
-  sv();closeMdl();rDetail(bid);toast(t('del')+' ✅');
-}
+function svEdit(iid,bid){var nm=document.getElementById('ename').value.trim();if(!nm)return;S.editedItems[iid]={id:iid,name:nm,type:document.getElementById('etype').value,total:parseInt(document.getElementById('etotal').value)||0,star:(getItemData(iid)||{}).star};sv();closeMdl();rDetail(bid);toast('✅')}
+function delItem(iid,bid){if(!S.hiddenItems)S.hiddenItems={};S.hiddenItems[iid]=true;sv();closeMdl();rDetail(bid);toast('✅')}
 
-// SUBTASKS
-function openAddSub(iid,bid){
-  document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>'+t('addSub2')+'</h3><input class="mi" id="snm" placeholder="'+t('addSubtask')+'"><button class="mb pr" onclick="svSub(\''+iid+'\',\''+bid+'\')">'+t('save')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
-  showMdl();
-}
-function svSub(iid,bid){
-  var nm=document.getElementById('snm').value.trim();
-  if(!nm)return;
-  if(!S.subtasks[iid])S.subtasks[iid]=[];
-  S.subtasks[iid].push({nm:nm,dn:false});
-  sv();closeMdl();rDetail(bid);toast('✅');
-}
-function tgSub(iid,si,bid){
-  if(S.subtasks[iid]&&S.subtasks[iid][si]){
-    S.subtasks[iid][si].dn=!S.subtasks[iid][si].dn;
-    // Auto-check parent if all subs done
-    var allDone=S.subtasks[iid].every(function(s){return s.dn});
-    if(allDone&&S.subtasks[iid].length>0)S.ck[iid]=true;
-    sv();rDetail(bid);
-  }
-}
-function delSub2(iid,si,bid){
-  if(S.subtasks[iid]){S.subtasks[iid].splice(si,1);sv();rDetail(bid)}
-}
+function openAddSub(iid,bid){document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>'+t('addSub2')+'</h3><input class="mi" id="snm" placeholder="'+t('addSubtask')+'"><button class="mb pr" onclick="svSub(\''+iid+'\',\''+bid+'\')">'+t('save')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';showMdl()}
+function svSub(iid,bid){var nm=document.getElementById('snm').value.trim();if(!nm)return;if(!S.subtasks[iid])S.subtasks[iid]=[];S.subtasks[iid].push({nm:nm,dn:false});sv();closeMdl();rDetail(bid);toast('✅')}
+function tgSub(iid,si,bid){if(S.subtasks[iid]&&S.subtasks[iid][si]){S.subtasks[iid][si].dn=!S.subtasks[iid][si].dn;if(S.subtasks[iid].every(function(s){return s.dn})&&S.subtasks[iid].length)S.ck[iid]=true;sv();rDetail(bid)}}
+function delSub2(iid,si,bid){if(S.subtasks[iid]){S.subtasks[iid].splice(si,1);sv();rDetail(bid)}}
 
-// Override rDetail to filter hidden items
-var _origRDetail=rDetail;
-rDetail=function(bid){
-  // Temporarily filter hidden
-  if(S.hiddenItems){
-    DATA.roots.forEach(function(r){r.branches.forEach(function(b){if(b.id===bid){
-      b.sections.forEach(function(s){
-        s._origItems=s._origItems||s.items;
-        s.items=s._origItems.filter(function(it){return!S.hiddenItems[it.id]});
-      });
-    }})});
-  }
-  _origRDetail(bid);
-};
-
-// ======================== RENDER TIMELINE ========================
+// ======================== TIMELINE ========================
 function rTimeline(){
   document.getElementById('tl-t').textContent=t('tlTitle');
-  var now=new Date();
-  var closestFuture=-1;
-  DATA.timeline.forEach(function(ev,i){if(new Date(ev.date)>now&&closestFuture<0)closestFuture=i});
-
+  var now=new Date(),cf=-1;
+  DATA.timeline.forEach(function(ev,i){if(new Date(ev.date)>now&&cf<0)cf=i});
   var h='<div class="tl"><div class="tll"></div>';
   DATA.timeline.forEach(function(ev,i){
-    var d=new Date(ev.date);
-    var status=d<now?'ps':(i===closestFuture?'cr':'fu');
-    var lb=S.lang==='ar'?ev.title:ev.titleEn;
-    var desc=S.lang==='ar'?ev.desc:ev.descEn;
-    var days=dU(ev.date);
-    var daysAbs=Math.abs(days);
-
-    h+='<div class="tli"><div class="tld '+status+'"></div><div class="tlc">';
-    h+='<div class="tldt">'+fD(ev.date)+'</div>';
-    h+='<div class="tltt">'+lb+'</div>';
+    var d=new Date(ev.date),st=d<now?'ps':(i===cf?'cr':'fu');
+    var lb=S.lang==='ar'?ev.title:ev.titleEn,desc=S.lang==='ar'?ev.desc:ev.descEn;
+    h+='<div class="tli"><div class="tld '+st+'"></div><div class="tlc"><div class="tldt">'+fD(ev.date)+'</div><div class="tltt">'+lb+'</div>';
     if(desc)h+='<div class="tldsc">'+desc+'</div>';
-    if(i===closestFuture)h+='<span class="tlb">'+t('youHere')+'</span>';
-    if(status==='fu'||status==='cr'){
-      h+='<div class="tl-cd">'+t('rem')+' '+daysAbs+' '+t('daysUnit')+'</div>';
-    } else {
-      h+='<div class="tl-cd" style="color:var(--grn)">✅ '+(S.lang==='ar'?'تم':'Done')+'</div>';
-    }
+    if(i===cf)h+='<span class="tlb">'+t('youHere')+'</span>';
+    if(st!=='ps')h+='<div class="tl-cd">'+t('remaining')+' '+Math.abs(dU(ev.date))+' '+t('daysUnit')+'</div>';
+    else h+='<div class="tl-cd" style="color:var(--grn)">✅</div>';
     h+='</div></div>';
   });
   h+='</div>';
-
-  // Add overall progress summary
-  var tp=totProg();
+  // Overall progress
+  var tp=Math.round(allItems().filter(function(x){return S.ck[x.i.id]}).length/Math.max(1,allItems().length)*100);
   var circ=175.9;
-  h+='<div style="text-align:center;padding:20px 0">';
-  h+='<div class="cpg" style="width:80px;height:80px;margin:0 auto 10px"><svg viewBox="0 0 64 64" style="width:80px;height:80px"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" style="stroke:var(--pri);stroke-dasharray:'+circ+';stroke-dashoffset:'+circ*(1-tp/100)+'"/></svg><div class="pct" style="color:var(--pri);font-size:16px">'+tp+'%</div></div>';
-  h+='<div style="font-size:14px;font-weight:700">'+t('prog')+' '+(S.lang==='ar'?'الكلي':'Overall')+'</div>';
-  h+='<div style="font-size:12px;color:var(--text2);margin-top:4px">🔥 '+S.streak.c+' '+t('streakT')+'</div>';
-  h+='</div>';
-
+  h+='<div style="text-align:center;padding:20px 0"><div class="cpg" style="width:80px;height:80px;margin:0 auto 10px"><svg viewBox="0 0 64 64" style="width:80px;height:80px"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" style="stroke:var(--pri);stroke-dasharray:'+circ+';stroke-dashoffset:'+circ*(1-tp/100)+'"/></svg><div class="pct" style="color:var(--pri);font-size:16px">'+tp+'%</div></div>';
+  h+='<div style="font-size:14px;font-weight:700">'+t('prog')+'</div>';
+  h+='<div style="font-size:12px;color:var(--text2);margin-top:4px">🔥 '+S.streak.c+' '+t('streakT')+'</div></div>';
   document.getElementById('tl-content').innerHTML=h;
 }
 
-// ======================== RENDER STATS ========================
+// ======================== STATS ========================
 function rStats(){
   document.getElementById('stats-t').textContent=t('statsT');
   var tabs=[{id:'ov',l:t('ov')},{id:'gpa',l:t('gpaC')}];
@@ -1042,72 +546,43 @@ function sSTB(tb){S.stab=tb;rStats();sv()}
 
 function rStatsOv(){
   var h='<div class="skc"><div class="sk-blob"></div><div class="ski">🔥</div><div class="skn">'+S.streak.c+'</div><div class="skl">'+t('streakT')+'</div></div>';
-
-  // Total progress
-  var tp=totProg(),circ=175.9;
-  h+='<div style="text-align:center;padding:10px 0 16px"><div class="cpg" style="width:70px;height:70px;margin:0 auto 8px"><svg viewBox="0 0 64 64" style="width:70px;height:70px"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" style="stroke:var(--pri);stroke-dasharray:'+circ+';stroke-dashoffset:'+circ*(1-tp/100)+'"/></svg><div class="pct" style="color:var(--pri);font-size:15px">'+tp+'%</div></div><div style="font-size:14px;font-weight:700">'+t('prog')+' '+(S.lang==='ar'?'الكلي':'Overall')+'</div></div>';
-
-  DATA.roots.forEach(function(r){
-    var cl=gC(r.id),bg=gBg(r.id);
-    r.branches.forEach(function(b){
-      var p=bProg(b.id),nm=S.lang==='ar'?b.name:b.nameEn;
-      h+='<div class="pli"><div class="plii" style="background:'+bg+';color:'+cl+'">'+b.icon+'</div><div class="plin"><div class="plinm">'+nm+'</div><div class="pb"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div></div><div class="plip" style="color:'+cl+'">'+p.p+'%</div></div>';
-    });
-  });
+  var tp=Math.round(allItems().filter(function(x){return S.ck[x.i.id]}).length/Math.max(1,allItems().length)*100),circ=175.9;
+  h+='<div style="text-align:center;padding:10px 0 16px"><div class="cpg" style="width:70px;height:70px;margin:0 auto 8px"><svg viewBox="0 0 64 64" style="width:70px;height:70px"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" style="stroke:var(--pri);stroke-dasharray:'+circ+';stroke-dashoffset:'+circ*(1-tp/100)+'"/></svg><div class="pct" style="color:var(--pri);font-size:15px">'+tp+'%</div></div><div style="font-size:14px;font-weight:700">'+t('prog')+'</div></div>';
+  DATA.roots.forEach(function(r){var cl=gC(r.id),bg=gBg(r.id);r.branches.forEach(function(b){var p=bProg(b.id),nm=S.lang==='ar'?b.name:b.nameEn;h+='<div class="pli"><div class="plii" style="background:'+bg+';color:'+cl+'">'+b.icon+'</div><div class="plin"><div class="plinm">'+nm+'</div><div class="pb"><div class="pfl" style="width:'+p.p+'%;background:'+cl+'"></div></div></div><div class="plip" style="color:'+cl+'">'+p.p+'%</div></div>'})});
   document.getElementById('s-cnt').innerHTML=h;
 }
 
 function rStatsGpa(){
   var h='<div class="gps">';
-  if(S.gpaR){
-    h+='<div class="gpr"><div class="gp-blob"></div><div class="gpv">'+S.gpaR.grade+'</div><div class="gpg">'+S.gpaR.gradeEn+'</div></div>';
-    h+='<div class="gprw"><div class="gpb"><div class="gpbv">'+S.gpaR.gpa4+'</div><div class="gpbl">'+t('gpa4')+'</div></div><div class="gpb"><div class="gpbv">'+S.gpaR.uk+'</div><div class="gpbl">'+t('ukClass')+'</div></div><div class="gpb"><div class="gpbv">'+S.gpaR.avg+'</div><div class="gpbl">'+t('cumGrade')+'</div></div></div>';
-    h+='<div class="gadv">'+t('advGpa')+S.gpaR.advice+'</div>';
-  }
-
+  if(S.gpaR){h+='<div class="gpr"><div class="gp-blob"></div><div class="gpv">'+S.gpaR.grade+'</div><div class="gpg">'+S.gpaR.gradeEn+'</div></div><div class="gprw"><div class="gpb"><div class="gpbv">'+S.gpaR.gpa4+'</div><div class="gpbl">'+t('gpa4')+'</div></div><div class="gpb"><div class="gpbv">'+S.gpaR.uk+'</div><div class="gpbl">'+t('ukClass')+'</div></div><div class="gpb"><div class="gpbv">'+S.gpaR.avg+'</div><div class="gpbl">'+t('cumGrade')+'</div></div></div><div class="gadv">'+t('advGpa')+S.gpaR.advice+'</div>'}
   S.gpa.sems.forEach(function(sem,si){
     h+='<div class="smc"><h4>'+t('sem')+' '+(si+1)+'<button class="dls" onclick="delSem('+si+')" style="background:none;border:none;color:var(--red);font-size:16px;cursor:pointer">✕</button></h4>';
-    sem.subs.forEach(function(sub,sbi){
-      h+='<div class="sr"><input placeholder="'+t('subName')+'" value="'+sub.n+'" onchange="updSub('+si+','+sbi+',\'n\',this.value)"><select onchange="updSub('+si+','+sbi+',\'g\',this.value)">';
-      var grades=['excellent','vgood','good','pass','weak','vweak'];
-      grades.forEach(function(g){h+='<option value="'+g+'"'+(sub.g===g?' selected':'')+'>'+t(g)+'</option>'});
-      h+='</select><button class="dls" onclick="delSubG('+si+','+sbi+')">✕</button></div>';
-    });
-    h+='<button class="asb" onclick="addSubG('+si+')">'+t('addSub')+'</button></div>';
-  });
-
-  h+='<button class="asmb" onclick="addSem()">'+t('addSem')+'</button>';
-  h+='<button class="cgb" onclick="calcGpa()">'+t('calcGpa')+'</button>';
-  h+='</div>';
+    sem.subs.forEach(function(sub,sbi){h+='<div class="sr"><input placeholder="'+t('subName')+'" value="'+sub.n+'" onchange="updSubG('+si+','+sbi+',this.value)"><select onchange="updGrd('+si+','+sbi+',this.value)">';['excellent','vgood','good','pass','weak','vweak'].forEach(function(g){h+='<option value="'+g+'"'+(sub.g===g?' selected':'')+'>'+t(g)+'</option>'});h+='</select><button class="dls" onclick="delSubG('+si+','+sbi+')">✕</button></div>'});
+    h+='<button class="asb" onclick="addSubG('+si+')">'+t('addSub')+'</button></div>'});
+  h+='<button class="asmb" onclick="addSem()">'+t('addSem')+'</button><button class="cgb" onclick="calcGpa()">'+t('calcGpa')+'</button></div>';
   document.getElementById('s-cnt').innerHTML=h;
 }
-
-function updSub(si,sbi,k,v){S.gpa.sems[si].subs[sbi][k]=v;sv()}
+function updSubG(si,sbi,v){S.gpa.sems[si].subs[sbi].n=v;sv()}
+function updGrd(si,sbi,v){S.gpa.sems[si].subs[sbi].g=v;sv()}
 function addSubG(si){S.gpa.sems[si].subs.push({n:'',g:'excellent'});sv();rStatsGpa()}
 function delSubG(si,sbi){S.gpa.sems[si].subs.splice(sbi,1);sv();rStatsGpa()}
 function addSem(){S.gpa.sems.push({id:S.gpa.sems.length+1,subs:[{n:'',g:'excellent'}]});sv();rStatsGpa()}
 function delSem(si){if(S.gpa.sems.length<=1)return;S.gpa.sems.splice(si,1);sv();rStatsGpa()}
-
 function calcGpa(){
-  var pts={excellent:4,vgood:3,good:2,pass:1,weak:0,vweak:0};
-  var total=0,count=0;
-  S.gpa.sems.forEach(function(sem){sem.subs.forEach(function(sub){total+=pts[sub.g]||0;count++})});
-  if(!count){toast('⚠️');return}
-  var avg=total/count;
-  var grade,gradeEn,gpa4,uk,advice;
-  if(avg>=3.5){grade='ممتاز';gradeEn='Excellent';gpa4='4.0';uk='First Class';advice=t('adv1')}
-  else if(avg>=2.5){grade='جيد جداً';gradeEn='Very Good';gpa4='3.0';uk='Upper Second (2:1)';advice=t('adv2')}
-  else if(avg>=1.5){grade='جيد';gradeEn='Good';gpa4='2.5';uk='Lower Second (2:2)';advice=t('adv2')}
-  else if(avg>=1){grade='مقبول';gradeEn='Pass';gpa4='2.0';uk='Third Class';advice=t('adv3')}
-  else{grade='ضعيف';gradeEn='Weak';gpa4='1.0';uk='Fail';advice=t('adv3')}
-  S.gpaR={grade:grade,gradeEn:gradeEn,gpa4:gpa4,uk:uk,avg:avg.toFixed(2),advice:advice};
-  sv();rStatsGpa();toast('✅');
+  var pts={excellent:4,vgood:3,good:2,pass:1,weak:0,vweak:0},tot=0,cnt=0;
+  S.gpa.sems.forEach(function(sem){sem.subs.forEach(function(sub){tot+=pts[sub.g]||0;cnt++})});
+  if(!cnt)return toast('⚠️');var avg=tot/cnt;var g,ge,g4,uk,adv;
+  if(avg>=3.5){g='ممتاز';ge='Excellent';g4='4.0';uk='First Class';adv=t('adv1')}
+  else if(avg>=2.5){g='جيد جداً';ge='Very Good';g4='3.0';uk='2:1';adv=t('adv2')}
+  else if(avg>=1.5){g='جيد';ge='Good';g4='2.5';uk='2:2';adv=t('adv2')}
+  else if(avg>=1){g='مقبول';ge='Pass';g4='2.0';uk='Third';adv=t('adv3')}
+  else{g='ضعيف';ge='Weak';g4='1.0';uk='Fail';adv=t('adv3')}
+  S.gpaR={grade:g,gradeEn:ge,gpa4:g4,uk:uk,avg:avg.toFixed(2),advice:adv};sv();rStatsGpa();toast('✅');
 }
 
-// ======================== RENDER SETTINGS ========================
+// ======================== SETTINGS ========================
 function rSettings(){
-  document.getElementById('set-t').textContent=t('settingsT');
-  document.getElementById('abt').textContent=t('about');
+  document.getElementById('set-t').textContent=t('settingsT');document.getElementById('abt').textContent=t('about');
   document.getElementById('set-list').innerHTML=
     '<div class="sti" onclick="toggleDark()"><div class="sil"><span class="sii">🌙</span><span class="sit">'+t('darkM')+'</span></div><div class="tg'+(S.dark?' on':'')+'"><div class="tgk"></div></div></div>'+
     '<div class="sti" onclick="toggleLang()"><div class="sil"><span class="sii">🌐</span><span class="sit">'+t('langS')+'</span></div><div style="font-size:13px;font-weight:600;color:var(--pri)">'+(S.lang==='ar'?'العربية':'English')+'</div></div>'+
@@ -1115,48 +590,12 @@ function rSettings(){
     '<div class="sti" onclick="impData()"><div class="sil"><span class="sii">📥</span><span class="sit">'+t('impD')+'</span></div><div style="color:var(--text2)">›</div></div>'+
     '<div class="sti" onclick="delData()"><div class="sil"><span class="sii">🗑️</span><span class="sit" style="color:var(--red)">'+t('delAll')+'</span></div><div style="color:var(--red)">›</div></div>';
 }
-
-function toggleDark(){
-  S.dark=!S.dark;
-  document.body.classList.toggle('dark',S.dark);
-  document.getElementById('dbtn').textContent=S.dark?'☀️':'🌙';
-  sv();if(S.cp==='settings')rSettings();
-}
-
-function toggleLang(){
-  S.lang=S.lang==='ar'?'en':'ar';
-  document.documentElement.lang=S.lang;
-  document.documentElement.dir=S.lang==='ar'?'rtl':'ltr';
-  document.getElementById('lbtn').textContent=S.lang==='ar'?'EN':'عر';
-  document.querySelectorAll('[data-t]').forEach(function(el){var k=el.dataset.t;if(TR[S.lang][k])el.textContent=TR[S.lang][k]});
-  sv();nav(S.cp);
-}
-
-function expData(){
-  var blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
-  var a=document.createElement('a');a.href=URL.createObjectURL(blob);
-  a.download='nlp_journey_backup.json';a.click();toast(t('exported'));
-}
-
-function impData(){
-  var inp=document.createElement('input');inp.type='file';inp.accept='.json';
-  inp.onchange=function(e){
-    var f=e.target.files[0];if(!f)return;
-    var r=new FileReader();r.onload=function(ev){
-      try{var d=JSON.parse(ev.target.result);Object.assign(S,d);sv();nav(S.cp);toast(t('imported'))}catch(e){toast('❌ Error')}
-    };r.readAsText(f);
-  };inp.click();
-}
-
-function delData(){
-  document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>🗑️ '+t('delAll')+'</h3><p style="font-size:13px;margin-bottom:16px;color:var(--text2)">'+t('delConf')+'</p><button class="mb dg" onclick="confirmDel()">'+t('confirm')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';
-  showMdl();
-}
-function confirmDel(){
-  S.ck={};S.ip={};S.tasks=[];S.streak={c:0,ld:null};S.subtasks={};S.editedItems={};S.hiddenItems={};
-  S.gpa={sems:[{id:1,subs:[{n:'',g:'excellent'}]}]};S.gpaR=null;S.cdMode={};
-  sv();closeMdl();nav('home');toast(t('deleted'));
-}
+function toggleDark(){S.dark=!S.dark;document.body.classList.toggle('dark',S.dark);document.getElementById('dbtn').textContent=S.dark?'☀️':'🌙';sv();if(S.cp==='settings')rSettings()}
+function toggleLang(){S.lang=S.lang==='ar'?'en':'ar';document.documentElement.lang=S.lang;document.documentElement.dir=S.lang==='ar'?'rtl':'ltr';document.getElementById('lbtn').textContent=S.lang==='ar'?'EN':'عر';document.querySelectorAll('[data-t]').forEach(function(el){var k=el.dataset.t;if(TR[S.lang][k])el.textContent=TR[S.lang][k]});sv();nav(S.cp)}
+function expData(){var b=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='nlp_backup.json';a.click();toast(t('exported'))}
+function impData(){var inp=document.createElement('input');inp.type='file';inp.accept='.json';inp.onchange=function(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{Object.assign(S,JSON.parse(ev.target.result));sv();nav(S.cp);toast(t('imported'))}catch(e){toast('❌')}};r.readAsText(f)};inp.click()}
+function delData(){document.getElementById('mdl').innerHTML='<div class="mh"></div><h3>🗑️ '+t('delAll')+'</h3><p style="font-size:13px;margin-bottom:16px;color:var(--text2)">'+t('delConf')+'</p><button class="mb dg" onclick="confirmDel()">'+t('confirm')+'</button><button class="mb sc" onclick="closeMdl()">'+t('cancel')+'</button>';showMdl()}
+function confirmDel(){S.ck={};S.ip={};S.streak={c:0,ld:null};S.subtasks={};S.editedItems={};S.hiddenItems={};S.gpa={sems:[{id:1,subs:[{n:'',g:'excellent'}]}]};S.gpaR=null;S.cdMode={};sv();closeMdl();nav('home');toast(t('deleted'))}
 
 // ======================== INIT ========================
 function init(){
@@ -1165,25 +604,6 @@ function init(){
   if(S.dark){document.body.classList.add('dark');document.getElementById('dbtn').textContent='☀️'}
   if(S.lang==='en'){document.documentElement.lang='en';document.documentElement.dir='ltr';document.getElementById('lbtn').textContent='عر'}
   document.querySelectorAll('[data-t]').forEach(function(el){var k=el.dataset.t;if(TR[S.lang][k])el.textContent=TR[S.lang][k]});
-
-  // Fix exam countdown dates - find next upcoming exam
-  var now=new Date();
-  var thisYear=now.getFullYear();
-  var nextYear=thisYear+1;
-  // Sem 1 exams in January, Sem 2 in May
-  DATA.countdowns.forEach(function(cd){
-    if(cd.id==='exams1'){
-      var examDate=new Date(thisYear,0,15); // Jan 15
-      if(examDate<now)examDate=new Date(nextYear,0,15);
-      cd.date=examDate.toISOString().split('T')[0];
-    }
-    if(cd.id==='exams2'){
-      var examDate2=new Date(thisYear,4,15); // May 15
-      if(examDate2<now)examDate2=new Date(nextYear,4,15);
-      cd.date=examDate2.toISOString().split('T')[0];
-    }
-  });
-
   rHome();
 }
 init();
