@@ -1614,6 +1614,227 @@ function init(){
     document.querySelectorAll('.reveal,.stag').forEach(function(el){obs.observe(el)});
   }else{revealAll()}
 }
+  // ============================================================
+// FIXES & ENHANCEMENTS
+// ============================================================
+
+// Fix: Refresh dynamic countdowns
+function refreshCDs(){
+  var now=noon();
+  DATA.countdowns.forEach(function(cd){
+    if(cd.id==='exams1'){
+      var d=new Date(now.getFullYear(),0,15,12);
+      if(d<now)d=new Date(now.getFullYear()+1,0,15,12);
+      var m2=('0'+(d.getMonth()+1)).slice(-2),da2=('0'+d.getDate()).slice(-2);
+      cd.date=d.getFullYear()+'-'+m2+'-'+da2;
+    }
+    if(cd.id==='exams2'){
+      var d2=new Date(now.getFullYear(),4,15,12);
+      if(d2<now)d2=new Date(now.getFullYear()+1,4,15,12);
+      var m3=('0'+(d2.getMonth()+1)).slice(-2),da3=('0'+d2.getDate()).slice(-2);
+      cd.date=d2.getFullYear()+'-'+m3+'-'+da3;
+    }
+  });
+}
+
+// Fix: Timeline slot rendering - skip covered slots properly
+function getSlotSpan(aid,ds){
+  var day=ensureDay(ds),count=0;
+  var keys=Object.keys(day.slots).sort();
+  for(var i=0;i<keys.length;i++){
+    if(day.slots[keys[i]]===aid)count++;
+  }
+  return count;
+}
+
+// Enhancement: Smart energy-based suggestions
+function getSmartSuggestion(){
+  var energy=getMood('energy'),focus=getMood('focus');
+  if(S.lang==='ar'){
+    if(energy<=2&&focus<=2)return'💡 طاقة منخفضة — جرب فيديوهات خفيفة أو مراجعة';
+    if(energy>=4&&focus>=4)return'🔥 طاقة عالية — الوقت المثالي للبرمجة أو القراءة المركزة';
+    if(focus<=2)return'🌊 تركيز ضعيف — جرب رياضة 10 دقائق ثم عُد';
+    return'✅ حالة جيدة — اختر أي مهمة وابدأ';
+  }else{
+    if(energy<=2&&focus<=2)return'💡 Low energy — try light videos or review';
+    if(energy>=4&&focus>=4)return'🔥 High energy — perfect for coding or deep reading';
+    if(focus<=2)return'🌊 Low focus — try 10min exercise then come back';
+    return'✅ Good state — pick any task and start';
+  }
+}
+
+// Enhancement: Weekly heatmap data
+function getWeekHeatmap(){
+  var data=[];
+  var d=new Date();d.setDate(d.getDate()-6);
+  for(var i=0;i<7;i++){
+    var m=('0'+(d.getMonth()+1)).slice(-2),da=('0'+d.getDate()).slice(-2);
+    var key=d.getFullYear()+'-'+m+'-'+da;
+    var habCount=0;
+    HABITS.forEach(function(h){if(S.habits[key+'_'+h.id])habCount++});
+    var level=0;
+    if(habCount>=1)level=1;if(habCount>=4)level=2;if(habCount>=8)level=3;if(habCount>=10)level=4;
+    var dayNames=S.lang==='ar'?['أحد','إثن','ثلا','أرب','خمي','جمع','سبت']:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    data.push({day:dayNames[d.getDay()],level:level,count:habCount});
+    d.setDate(d.getDate()+1);
+  }
+  return data;
+}
+
+// Enhancement: Add heatmap to wellness page
+var _origRWellness=rWellness;
+rWellness=function(){
+  _origRWellness();
+  // Add smart suggestion
+  var suggestion=getSmartSuggestion();
+  var suggEl=document.createElement('div');
+  suggEl.style.cssText='margin:0 20px 12px;padding:12px;background:var(--nlpb);border:1px solid rgba(6,182,212,.15);border-radius:14px;font-size:11px;color:var(--t1);line-height:1.5';
+  suggEl.textContent=suggestion;
+  var heroWrap=document.getElementById('well-hero-wrap');
+  if(heroWrap&&heroWrap.nextSibling)heroWrap.parentNode.insertBefore(suggEl,heroWrap.nextSibling);
+
+  // Add heatmap
+  var wheelEl=document.getElementById('well-wheel');
+  if(wheelEl){
+    var hm=getWeekHeatmap();
+    var hmH='<div style="margin:0 20px 14px"><div style="font-size:12px;font-weight:700;color:var(--t0);margin-bottom:8px">'+(S.lang==='ar'?'نشاط الأسبوع':'Weekly Activity')+'</div><div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">';
+    hm.forEach(function(d){
+      var bg=d.level===0?'var(--gl)':d.level===1?'rgba(16,185,129,.15)':d.level===2?'rgba(16,185,129,.3)':d.level===3?'rgba(16,185,129,.5)':'rgba(16,185,129,.75)';
+      var color=d.level>=3?'#fff':'var(--t2)';
+      hmH+='<div style="aspect-ratio:1;border-radius:6px;background:'+bg+';border:1px solid var(--gb);display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="font-size:8px;font-weight:700;color:'+color+'">'+d.day+'</div><div style="font-size:10px;font-weight:800;color:'+color+'">'+d.count+'</div></div>';
+    });
+    hmH+='</div></div>';
+    wheelEl.insertAdjacentHTML('beforebegin',hmH);
+  }
+};
+
+// Enhancement: Add smart suggestion to timeline
+var _origRTimeline=rTimeline;
+rTimeline=function(){
+  _origRTimeline();
+  var suggestion=getSmartSuggestion();
+  var head=document.querySelector('.tl-head');
+  if(head){
+    head.innerHTML+='<div style="margin-top:6px;padding:8px 10px;background:var(--nlpb);border:1px solid rgba(6,182,212,.15);border-radius:10px;font-size:10px;color:var(--t1)">'+suggestion+'</div>';
+  }
+};
+
+// Enhancement: Productivity score for today
+function todayScore(){
+  var habScore=HABITS.length?Math.round(habsDoneToday()/HABITS.length*100):0;
+  var planScore=dayBudgetM(tKey())?Math.round(dayUsedM(tKey())/dayBudgetM(tKey())*100):0;
+  planScore=Math.min(100,planScore);
+  var moodScore=(getMood('energy')+getMood('focus')+getMood('mood')+getMood('sleep'))*5;
+  return Math.round((habScore+planScore+moodScore)/3);
+}
+
+// Enhancement: Add productivity score to home
+var _origRHome=rHome;
+rHome=function(){
+  refreshCDs();
+  _origRHome();
+  // Add today's productivity score after daily budget
+  var dailyEl=document.getElementById('h-daily');
+  if(dailyEl){
+    var score=todayScore();
+    var scoreCol=score>=70?'var(--ok)':score>=40?'var(--warn)':'var(--err)';
+    var scoreH='<div style="margin:8px 20px 0;background:var(--bgc);backdrop-filter:blur(16px);border:1px solid var(--gb);border-radius:var(--r);padding:10px 16px;display:flex;align-items:center;justify-content:space-between"><div style="font-size:11px;font-weight:600;color:var(--t0)">'+(S.lang==='ar'?'إنتاجية اليوم':'Today\'s Productivity')+'</div><div style="font-size:18px;font-weight:800;color:'+scoreCol+'">'+score+'%</div></div>';
+    dailyEl.insertAdjacentHTML('afterend',scoreH);
+  }
+};
+
+// Enhancement: Recovery milestones
+function getRecMilestones(){
+  var d=recDays();
+  var milestones=[
+    {day:1,icon:'🌱',text:S.lang==='ar'?'البداية':'The Beginning'},
+    {day:7,icon:'⭐',text:S.lang==='ar'?'أسبوع كامل':'Full Week'},
+    {day:14,icon:'🔥',text:S.lang==='ar'?'نهاية العاصفة':'Storm Passed'},
+    {day:30,icon:'💪',text:S.lang==='ar'?'شهر كامل':'Full Month'},
+    {day:60,icon:'🧠',text:S.lang==='ar'?'الدماغ يتعافى':'Brain Healing'},
+    {day:90,icon:'🏔️',text:S.lang==='ar'?'90 يوم — حرية':'90 Days — Freedom'},
+    {day:180,icon:'🌟',text:S.lang==='ar'?'نصف سنة':'Half Year'},
+    {day:365,icon:'👑',text:S.lang==='ar'?'سنة كاملة':'Full Year'}
+  ];
+  return milestones.map(function(m){m.done=d>=m.day;m.current=d>=m.day&&(!milestones.find(function(n){return n.day>m.day&&d>=n.day}));return m});
+}
+
+// Enhancement: Connection between recovery and study performance
+function recStudyImpact(){
+  var d=recDays();
+  if(d<=7)return{focusBoost:0,label:S.lang==='ar'?'الدماغ في مرحلة التطهير':'Brain in detox phase'};
+  if(d<=14)return{focusBoost:10,label:S.lang==='ar'?'بداية تحسن التركيز':'Focus starting to improve'};
+  if(d<=30)return{focusBoost:25,label:S.lang==='ar'?'تحسن ملموس في الاستيعاب':'Noticeable comprehension improvement'};
+  if(d<=60)return{focusBoost:40,label:S.lang==='ar'?'ذاكرة أقوى + تركيز أعمق':'Stronger memory + deeper focus'};
+  if(d<=90)return{focusBoost:60,label:S.lang==='ar'?'أداء أكاديمي شبه مثالي':'Near-optimal academic performance'};
+  return{focusBoost:80,label:S.lang==='ar'?'دماغ بكامل قوته':'Brain at full power'};
+}
+
+// Fix: Ensure dark mode button updates
+var _origToggleDark=toggleDark;
+toggleDark=function(){
+  _origToggleDark();
+  document.getElementById('dbtn').textContent=document.body.classList.contains('light')?'🌙':'☀️';
+};
+
+// Enhancement: Swipe to change pages (basic)
+var touchStartX=0;
+document.addEventListener('touchstart',function(e){touchStartX=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',function(e){
+  var diff=e.changedTouches[0].clientX-touchStartX;
+  if(Math.abs(diff)<80)return;
+  var pages=['home','paths','timeline','wellness','stats'];
+  var idx=pages.indexOf(S.cp);
+  if(idx<0)return;
+  if(S.lang==='ar'){
+    if(diff>0&&idx>0)nav(pages[idx-1]);
+    if(diff<0&&idx<pages.length-1)nav(pages[idx+1]);
+  }else{
+    if(diff<0&&idx>0)nav(pages[idx-1]);
+    if(diff>0&&idx<pages.length-1)nav(pages[idx+1]);
+  }
+},{passive:true});
+
+// Enhancement: Keyboard shortcut for SOS (press 'S' 3 times quickly)
+var sosKeyCount=0,sosKeyTimer=null;
+document.addEventListener('keydown',function(e){
+  if(e.key==='s'||e.key==='S'){
+    sosKeyCount++;
+    clearTimeout(sosKeyTimer);
+    sosKeyTimer=setTimeout(function(){sosKeyCount=0},1000);
+    if(sosKeyCount>=3){sosKeyCount=0;openSOS()}
+  }
+});
+
+// Enhancement: Auto-save note on blur
+document.addEventListener('focusout',function(e){
+  if(e.target&&e.target.id==='day-note'){
+    var ds=tKey();ensureDay(ds).note=e.target.value;sv();
+  }
+});
+
+// Enhancement: Notification-style reminder
+function checkReminders(){
+  var h=new Date().getHours();
+  if(h===6&&!sessionStorage.getItem('reminded_fajr')){
+    sessionStorage.setItem('reminded_fajr','1');
+    toast(S.lang==='ar'?'🌅 وقت صلاة الفجر':'🌅 Fajr Prayer time');
+  }
+  if(h===22&&!sessionStorage.getItem('reminded_review')){
+    sessionStorage.setItem('reminded_review','1');
+    toast(S.lang==='ar'?'📝 وقت المراجعة اليومية':'📝 Daily review time');
+  }
+  if(h===23&&!sessionStorage.getItem('reminded_sleep')){
+    sessionStorage.setItem('reminded_sleep','1');
+    toast(S.lang==='ar'?'😴 حان وقت النوم — تذكر هدفك':'😴 Time to sleep — remember your goal');
+  }
+}
+setInterval(checkReminders,60000);
+checkReminders();
+
+console.log('🌟 Life Journey v5.0 loaded successfully');
+console.log('🧠 Recovery day:',recDays());
+console.log('📊 Total progress:',Math.round(allItems().filter(function(x){return S.ck[x.i.id]}).length/Math.max(1,allItems().length)*100)+'%');
 init();
 </script>
 </body>
